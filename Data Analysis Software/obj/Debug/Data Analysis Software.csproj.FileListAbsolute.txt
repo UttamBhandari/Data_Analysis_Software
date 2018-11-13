@@ -1,0 +1,10 @@
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.csprojAssemblyReference.cache
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data_Analysis_Software.Form1.resources
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data_Analysis_Software.Properties.Resources.resources
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.csproj.GenerateResource.cache
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.csproj.CoreCompileInputs.cache
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\bin\Debug\Data Analysis Software.exe.config
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\bin\Debug\Data Analysis Software.exe
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\bin\Debug\Data Analysis Software.pdb
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.exe
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.pdb
