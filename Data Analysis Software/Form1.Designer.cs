@@ -32,7 +32,6 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.labelstarttime = new System.Windows.Forms.Label();
             this.labelweight = new System.Windows.Forms.Label();
             this.labeldate = new System.Windows.Forms.Label();
@@ -40,7 +39,9 @@
             this.labelsmode = new System.Windows.Forms.Label();
             this.labelmonitor = new System.Windows.Forms.Label();
             this.labelinterval = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -64,21 +65,13 @@
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openFileToolStripMenuItem.Text = "Open file";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(281, 43);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(494, 382);
-            this.richTextBox2.TabIndex = 2;
-            this.richTextBox2.Text = "Start Time";
             // 
             // labelstarttime
             // 
@@ -143,11 +136,22 @@
             this.labelinterval.TabIndex = 8;
             this.labelinterval.Text = "Interval";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(259, 37);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(478, 274);
+            this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelweight);
             this.Controls.Add(this.labeldate);
             this.Controls.Add(this.labellength);
@@ -155,13 +159,13 @@
             this.Controls.Add(this.labelmonitor);
             this.Controls.Add(this.labelinterval);
             this.Controls.Add(this.labelstarttime);
-            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,7 +177,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label labelstarttime;
         private System.Windows.Forms.Label labelweight;
         private System.Windows.Forms.Label labeldate;
@@ -181,6 +184,7 @@
         private System.Windows.Forms.Label labelsmode;
         private System.Windows.Forms.Label labelmonitor;
         private System.Windows.Forms.Label labelinterval;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
