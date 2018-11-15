@@ -13,7 +13,7 @@ namespace Data_Analysis_Software
 {
     public partial class Form1 : Form
     {
-        private Dictionary<string, string> _HRdata = new Dictionary<string, string>();
+        private Dictionary<string, List<string>> _HRdata = new Dictionary<string, List<string>>();
         private Dictionary<string, string> _parameter = new Dictionary<string, string>();
         public Form1()
         {
