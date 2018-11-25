@@ -103,7 +103,22 @@ namespace Data_Analysis_Software
                 _HRdata.Add("altitude", altitude);
                 _HRdata.Add("heartRate", heartRate);
                 _HRdata.Add("watt", watt);
+
+                string totalDistanceCovered = Abstract.FindSum(_HRdata["cadence"]).ToString();
+                string averageSpeed = Abstract.FindAverage(_HRdata["cadence"]).ToString();
+                string maxSpeed = Abstract.FindMax(_HRdata["cadence"]).ToString();
+
+                string averageHeartRate = Abstract.FindAverage(_HRdata["heartRate"]).ToString();
+                string maximumHeartRate = Abstract.FindMax(_HRdata["heartRate"]).ToString();
+                string minHeartRate = Abstract.FindMin(_HRdata["heartRate"]).ToString();
+
+                string averagePower = Abstract.FindAverage(_HRdata["watt"]).ToString();
+                string maxPower = Abstract.FindMax(_HRdata["watt"]).ToString();
+
+                string averageAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
+                string maximumAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
                 
+
 
             }
         }
@@ -118,6 +133,11 @@ namespace Data_Analysis_Software
         }
 
             private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
