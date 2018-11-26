@@ -8,3 +8,6 @@ C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\De
 C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data_Analysis_Software.csproj.CoreCompileInputs.cache
 C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.exe
 C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.pdb
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\bin\Debug\ZedGraph.dll
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data_Analysis_Software.GraphViewer.resources
+C:\Users\Uttam\source\repos\Data Analysis Software\Data Analysis Software\obj\Debug\Data_Analysis_Software.csproj.CopyComplete

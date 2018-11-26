@@ -37,17 +37,18 @@
             this.zedGraphControl1.Location = new System.Drawing.Point(12, 12);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.PointValueFormat = "G";
-            this.zedGraphControl1.Size = new System.Drawing.Size(776, 426);
+            this.zedGraphControl1.Size = new System.Drawing.Size(864, 486);
             this.zedGraphControl1.TabIndex = 0;
             // 
             // GraphViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(877, 501);
             this.Controls.Add(this.zedGraphControl1);
             this.Name = "GraphViewer";
             this.Text = "GraphViewer";
+            this.Load += new System.EventHandler(this.GraphViewer_Load);
             this.ResumeLayout(false);
 
         }

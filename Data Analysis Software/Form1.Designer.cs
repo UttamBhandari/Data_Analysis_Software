@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.labelstarttime = new System.Windows.Forms.Label();
             this.labelweight = new System.Windows.Forms.Label();
@@ -40,17 +41,17 @@
             this.labelmonitor = new System.Windows.Forms.Label();
             this.labelinterval = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.totalDistanceCovered = new System.Windows.Forms.Label();
-            this.averageSpeed = new System.Windows.Forms.Label();
-            this.maxSpeed = new System.Windows.Forms.Label();
-            this.averageHeartRate = new System.Windows.Forms.Label();
-            this.maximumHeartRate = new System.Windows.Forms.Label();
-            this.minHeartRate = new System.Windows.Forms.Label();
-            this.averagePower = new System.Windows.Forms.Label();
-            this.maxPower = new System.Windows.Forms.Label();
-            this.averageAltitude = new System.Windows.Forms.Label();
-            this.maximumAltitude = new System.Windows.Forms.Label();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbltotalDistanceCovered = new System.Windows.Forms.Label();
+            this.lblAverageSpeed = new System.Windows.Forms.Label();
+            this.lblmaxSpeed = new System.Windows.Forms.Label();
+            this.lblaverageHeartRate = new System.Windows.Forms.Label();
+            this.lblmaximumHeartRate = new System.Windows.Forms.Label();
+            this.lblminHeartRate = new System.Windows.Forms.Label();
+            this.lblaveragePower = new System.Windows.Forms.Label();
+            this.lblmaxPower = new System.Windows.Forms.Label();
+            this.lblaverageAltitude = new System.Windows.Forms.Label();
+            this.lblmaximumAltitude = new System.Windows.Forms.Label();
+            this.btnviewgraph = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -77,9 +78,15 @@
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openFileToolStripMenuItem.Text = "Open file";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
             // 
             // openFileDialog1
             // 
@@ -152,125 +159,131 @@
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 58);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(458, 415);
+            this.dataGridView1.Size = new System.Drawing.Size(458, 392);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // totalDistanceCovered
+            // lbltotalDistanceCovered
             // 
-            this.totalDistanceCovered.AutoSize = true;
-            this.totalDistanceCovered.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.totalDistanceCovered.Location = new System.Drawing.Point(519, 219);
-            this.totalDistanceCovered.Name = "totalDistanceCovered";
-            this.totalDistanceCovered.Size = new System.Drawing.Size(119, 13);
-            this.totalDistanceCovered.TabIndex = 15;
-            this.totalDistanceCovered.Text = "Total Distance Covered";
+            this.lbltotalDistanceCovered.AutoSize = true;
+            this.lbltotalDistanceCovered.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbltotalDistanceCovered.Location = new System.Drawing.Point(519, 219);
+            this.lbltotalDistanceCovered.Name = "lbltotalDistanceCovered";
+            this.lbltotalDistanceCovered.Size = new System.Drawing.Size(119, 13);
+            this.lbltotalDistanceCovered.TabIndex = 15;
+            this.lbltotalDistanceCovered.Text = "Total Distance Covered";
             // 
-            // averageSpeed
+            // lblAverageSpeed
             // 
-            this.averageSpeed.AutoSize = true;
-            this.averageSpeed.Location = new System.Drawing.Point(519, 244);
-            this.averageSpeed.Name = "averageSpeed";
-            this.averageSpeed.Size = new System.Drawing.Size(81, 13);
-            this.averageSpeed.TabIndex = 16;
-            this.averageSpeed.Text = "Average Speed";
+            this.lblAverageSpeed.AutoSize = true;
+            this.lblAverageSpeed.Location = new System.Drawing.Point(519, 244);
+            this.lblAverageSpeed.Name = "lblAverageSpeed";
+            this.lblAverageSpeed.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblAverageSpeed.Size = new System.Drawing.Size(81, 13);
+            this.lblAverageSpeed.TabIndex = 16;
+            this.lblAverageSpeed.Text = "Average Speed";
             // 
-            // maxSpeed
+            // lblmaxSpeed
             // 
-            this.maxSpeed.AutoSize = true;
-            this.maxSpeed.Location = new System.Drawing.Point(519, 271);
-            this.maxSpeed.Name = "maxSpeed";
-            this.maxSpeed.Size = new System.Drawing.Size(85, 13);
-            this.maxSpeed.TabIndex = 17;
-            this.maxSpeed.Text = "Maximum Speed";
+            this.lblmaxSpeed.AutoSize = true;
+            this.lblmaxSpeed.Location = new System.Drawing.Point(519, 271);
+            this.lblmaxSpeed.Name = "lblmaxSpeed";
+            this.lblmaxSpeed.Size = new System.Drawing.Size(85, 13);
+            this.lblmaxSpeed.TabIndex = 17;
+            this.lblmaxSpeed.Text = "Maximum Speed";
             // 
-            // averageHeartRate
+            // lblaverageHeartRate
             // 
-            this.averageHeartRate.AutoSize = true;
-            this.averageHeartRate.Location = new System.Drawing.Point(519, 294);
-            this.averageHeartRate.Name = "averageHeartRate";
-            this.averageHeartRate.Size = new System.Drawing.Size(102, 13);
-            this.averageHeartRate.TabIndex = 18;
-            this.averageHeartRate.Text = "Average Heart Rate";
+            this.lblaverageHeartRate.AutoSize = true;
+            this.lblaverageHeartRate.Location = new System.Drawing.Point(519, 294);
+            this.lblaverageHeartRate.Name = "lblaverageHeartRate";
+            this.lblaverageHeartRate.Size = new System.Drawing.Size(102, 13);
+            this.lblaverageHeartRate.TabIndex = 18;
+            this.lblaverageHeartRate.Text = "Average Heart Rate";
             // 
-            // maximumHeartRate
+            // lblmaximumHeartRate
             // 
-            this.maximumHeartRate.AutoSize = true;
-            this.maximumHeartRate.Location = new System.Drawing.Point(518, 319);
-            this.maximumHeartRate.Name = "maximumHeartRate";
-            this.maximumHeartRate.Size = new System.Drawing.Size(106, 13);
-            this.maximumHeartRate.TabIndex = 19;
-            this.maximumHeartRate.Text = "Maximum Heart Rate";
-            this.maximumHeartRate.Click += new System.EventHandler(this.label1_Click);
+            this.lblmaximumHeartRate.AutoSize = true;
+            this.lblmaximumHeartRate.Location = new System.Drawing.Point(518, 319);
+            this.lblmaximumHeartRate.Name = "lblmaximumHeartRate";
+            this.lblmaximumHeartRate.Size = new System.Drawing.Size(106, 13);
+            this.lblmaximumHeartRate.TabIndex = 19;
+            this.lblmaximumHeartRate.Text = "Maximum Heart Rate";
+            this.lblmaximumHeartRate.Click += new System.EventHandler(this.label1_Click);
             // 
-            // minHeartRate
+            // lblminHeartRate
             // 
-            this.minHeartRate.AutoSize = true;
-            this.minHeartRate.Location = new System.Drawing.Point(519, 343);
-            this.minHeartRate.Name = "minHeartRate";
-            this.minHeartRate.Size = new System.Drawing.Size(105, 13);
-            this.minHeartRate.TabIndex = 20;
-            this.minHeartRate.Text = "Mimimum Heart Rate";
+            this.lblminHeartRate.AutoSize = true;
+            this.lblminHeartRate.Location = new System.Drawing.Point(519, 343);
+            this.lblminHeartRate.Name = "lblminHeartRate";
+            this.lblminHeartRate.Size = new System.Drawing.Size(105, 13);
+            this.lblminHeartRate.TabIndex = 20;
+            this.lblminHeartRate.Text = "Mimimum Heart Rate";
             // 
-            // averagePower
+            // lblaveragePower
             // 
-            this.averagePower.AutoSize = true;
-            this.averagePower.Location = new System.Drawing.Point(519, 365);
-            this.averagePower.Name = "averagePower";
-            this.averagePower.Size = new System.Drawing.Size(80, 13);
-            this.averagePower.TabIndex = 21;
-            this.averagePower.Text = "Average Power";
+            this.lblaveragePower.AutoSize = true;
+            this.lblaveragePower.Location = new System.Drawing.Point(519, 365);
+            this.lblaveragePower.Name = "lblaveragePower";
+            this.lblaveragePower.Size = new System.Drawing.Size(80, 13);
+            this.lblaveragePower.TabIndex = 21;
+            this.lblaveragePower.Text = "Average Power";
             // 
-            // maxPower
+            // lblmaxPower
             // 
-            this.maxPower.AutoSize = true;
-            this.maxPower.Location = new System.Drawing.Point(519, 389);
-            this.maxPower.Name = "maxPower";
-            this.maxPower.Size = new System.Drawing.Size(84, 13);
-            this.maxPower.TabIndex = 22;
-            this.maxPower.Text = "Maximum Power";
+            this.lblmaxPower.AutoSize = true;
+            this.lblmaxPower.Location = new System.Drawing.Point(519, 389);
+            this.lblmaxPower.Name = "lblmaxPower";
+            this.lblmaxPower.Size = new System.Drawing.Size(84, 13);
+            this.lblmaxPower.TabIndex = 22;
+            this.lblmaxPower.Text = "Maximum Power";
             // 
-            // averageAltitude
+            // lblaverageAltitude
             // 
-            this.averageAltitude.AutoSize = true;
-            this.averageAltitude.Location = new System.Drawing.Point(519, 412);
-            this.averageAltitude.Name = "averageAltitude";
-            this.averageAltitude.Size = new System.Drawing.Size(85, 13);
-            this.averageAltitude.TabIndex = 23;
-            this.averageAltitude.Text = "Average Altitude";
+            this.lblaverageAltitude.AutoSize = true;
+            this.lblaverageAltitude.Location = new System.Drawing.Point(519, 412);
+            this.lblaverageAltitude.Name = "lblaverageAltitude";
+            this.lblaverageAltitude.Size = new System.Drawing.Size(85, 13);
+            this.lblaverageAltitude.TabIndex = 23;
+            this.lblaverageAltitude.Text = "Average Altitude";
             // 
-            // maximumAltitude
+            // lblmaximumAltitude
             // 
-            this.maximumAltitude.AutoSize = true;
-            this.maximumAltitude.Location = new System.Drawing.Point(519, 437);
-            this.maximumAltitude.Name = "maximumAltitude";
-            this.maximumAltitude.Size = new System.Drawing.Size(89, 13);
-            this.maximumAltitude.TabIndex = 24;
-            this.maximumAltitude.Text = "Maximum Altitude";
+            this.lblmaximumAltitude.AutoSize = true;
+            this.lblmaximumAltitude.Location = new System.Drawing.Point(519, 437);
+            this.lblmaximumAltitude.Name = "lblmaximumAltitude";
+            this.lblmaximumAltitude.Size = new System.Drawing.Size(89, 13);
+            this.lblmaximumAltitude.TabIndex = 24;
+            this.lblmaximumAltitude.Text = "Maximum Altitude";
             // 
-            // exitToolStripMenuItem
+            // btnviewgraph
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.btnviewgraph.Location = new System.Drawing.Point(395, 27);
+            this.btnviewgraph.Name = "btnviewgraph";
+            this.btnviewgraph.Size = new System.Drawing.Size(75, 23);
+            this.btnviewgraph.TabIndex = 25;
+            this.btnviewgraph.Text = "View Graph";
+            this.btnviewgraph.UseVisualStyleBackColor = true;
+            this.btnviewgraph.Click += new System.EventHandler(this.btnviewgraph_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 470);
-            this.Controls.Add(this.maximumAltitude);
-            this.Controls.Add(this.averageAltitude);
-            this.Controls.Add(this.maxPower);
-            this.Controls.Add(this.averagePower);
-            this.Controls.Add(this.minHeartRate);
-            this.Controls.Add(this.maximumHeartRate);
-            this.Controls.Add(this.averageHeartRate);
-            this.Controls.Add(this.maxSpeed);
-            this.Controls.Add(this.averageSpeed);
-            this.Controls.Add(this.totalDistanceCovered);
+            this.Controls.Add(this.btnviewgraph);
+            this.Controls.Add(this.lblmaximumAltitude);
+            this.Controls.Add(this.lblaverageAltitude);
+            this.Controls.Add(this.lblmaxPower);
+            this.Controls.Add(this.lblaveragePower);
+            this.Controls.Add(this.lblminHeartRate);
+            this.Controls.Add(this.lblmaximumHeartRate);
+            this.Controls.Add(this.lblaverageHeartRate);
+            this.Controls.Add(this.lblmaxSpeed);
+            this.Controls.Add(this.lblAverageSpeed);
+            this.Controls.Add(this.lbltotalDistanceCovered);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelweight);
             this.Controls.Add(this.labeldate);
@@ -282,7 +295,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -305,17 +318,18 @@
         private System.Windows.Forms.Label labelmonitor;
         private System.Windows.Forms.Label labelinterval;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label totalDistanceCovered;
-        private System.Windows.Forms.Label averageSpeed;
-        private System.Windows.Forms.Label maxSpeed;
-        private System.Windows.Forms.Label averageHeartRate;
-        private System.Windows.Forms.Label maximumHeartRate;
-        private System.Windows.Forms.Label minHeartRate;
-        private System.Windows.Forms.Label averagePower;
-        private System.Windows.Forms.Label maxPower;
-        private System.Windows.Forms.Label averageAltitude;
-        private System.Windows.Forms.Label maximumAltitude;
+        private System.Windows.Forms.Label lbltotalDistanceCovered;
+        private System.Windows.Forms.Label lblAverageSpeed;
+        private System.Windows.Forms.Label lblmaxSpeed;
+        private System.Windows.Forms.Label lblaverageHeartRate;
+        private System.Windows.Forms.Label lblmaximumHeartRate;
+        private System.Windows.Forms.Label lblminHeartRate;
+        private System.Windows.Forms.Label lblaveragePower;
+        private System.Windows.Forms.Label lblmaxPower;
+        private System.Windows.Forms.Label lblaverageAltitude;
+        private System.Windows.Forms.Label lblmaximumAltitude;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Button btnviewgraph;
     }
 }
 

@@ -105,19 +105,30 @@ namespace Data_Analysis_Software
                 _HRdata.Add("watt", watt);
 
                 string totalDistanceCovered = Abstract.FindSum(_HRdata["cadence"]).ToString();
+                lbltotalDistanceCovered.Text = "Total Distance Cover = " + totalDistanceCovered;
                 string averageSpeed = Abstract.FindAverage(_HRdata["cadence"]).ToString();
+                lblAverageSpeed.Text = "Average Speed = " + averageSpeed;
                 string maxSpeed = Abstract.FindMax(_HRdata["cadence"]).ToString();
+                lblmaxSpeed.Text = "Maximum Speed = " + maxSpeed;
 
                 string averageHeartRate = Abstract.FindAverage(_HRdata["heartRate"]).ToString();
+                lblaverageHeartRate.Text = "Average heart Rate = " + averageHeartRate;
                 string maximumHeartRate = Abstract.FindMax(_HRdata["heartRate"]).ToString();
+                lblmaximumHeartRate.Text = "MAximum Heart Rate = " + maximumHeartRate;
                 string minHeartRate = Abstract.FindMin(_HRdata["heartRate"]).ToString();
+                lblminHeartRate.Text = "Mimimum Heart Rate= " + minHeartRate;
 
                 string averagePower = Abstract.FindAverage(_HRdata["watt"]).ToString();
+                lblaveragePower.Text = "Average Power = " + averagePower;
                 string maxPower = Abstract.FindMax(_HRdata["watt"]).ToString();
+                lblmaxPower.Text = "MAximum Power = " + maxPower;
 
                 string averageAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
+                lblaverageAltitude.Text = "Average Altitude = " + averageAltitude;
                 string maximumAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
-                
+                lblmaximumAltitude.Text = "MAximum Altitude= " + maximumAltitude;
+
+
 
 
             }
@@ -140,6 +151,23 @@ namespace Data_Analysis_Software
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void btnviewgraph_Click(object sender, EventArgs e)
+        {
+            if (_HRdata.Count < 1)
+            {
+                MessageBox.Show("Must select a file first");
+            }
+            else
+            {
+                GraphViewer._powerData = _HRdata["cadence"];
+                new GraphViewer().Show();
+            }
         }
     }
 }
