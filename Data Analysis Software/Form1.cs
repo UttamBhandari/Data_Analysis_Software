@@ -8,17 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Data_Analysis_Software
 {
-    public partial class Form1 : Form
+    public partial class btnindividualform : Form
     {
+        private int count = 0;
         private Dictionary<string, List<string>> _HRdata = new Dictionary<string, List<string>>();
         private Dictionary<string, string> _parameter = new Dictionary<string, string>();
-        public Form1()
+        private string endTime;
+
+        public btnindividualform()
         {
             InitializeComponent();
             GridFormat();
+
         }
         private static string[] SplitData(string text)
         {
@@ -47,7 +52,9 @@ namespace Data_Analysis_Software
 
             if (result == DialogResult.OK)
             {
+                Cursor.Current = Cursors.WaitCursor;
                 _parameter = new Dictionary<string, string>();
+                _HRdata = new Dictionary<string, List<string>>();
                 string text = File.ReadAllText(openFileDialog1.FileName);
                 var splittedString = SplitData(text);
                 var splittedParaData = SplitDataByEnter(splittedString[0]);
@@ -59,10 +66,14 @@ namespace Data_Analysis_Software
                         _parameter.Add(parts[0], parts[1]);
                     }
                 }
-               /* foreach (var a in _parameter)
-                {
-                    Console.WriteLine(a.Key);
-                }*/
+
+                DateTime date1 = new DateTime(Convert.ToInt64(_parameter["Date"]));
+                CultureInfo ci = CultureInfo.InvariantCulture;
+
+                /* foreach (var a in _parameter)
+                 {
+                     Console.WriteLine(a.Key);
+                 }*/
                 //StreamReader sr = new StreamReader(Application.StartupPath +);
                 //richTextBox2.Text = sr.ReadToEnd();
                 //sr.Close();
@@ -70,30 +81,38 @@ namespace Data_Analysis_Software
                 labelinterval.Text = labelinterval.Text + "= " + _parameter["Interval"];
                 labelmonitor.Text = labelmonitor.Text + "= " + _parameter["Monitor"];
                 labelsmode.Text = labelsmode.Text + "= " + _parameter["SMode"];
-                labeldate.Text = labeldate.Text + "= " + _parameter["Date"];
+                labeldate.Text = labeldate.Text + "= " + ConvertToDate(_parameter["Date"]);
                 labellength.Text = labellength.Text + "= " + _parameter["Length"];
                 labelweight.Text = labelweight.Text + "= " + _parameter["Weight"];
 
                 List<string> cadence = new List<string>();
                 List<string> altitude = new List<string>();
-                List<string>heartRate = new List<string>();
+                List<string> heartRate = new List<string>();
                 List<string> watt = new List<string>();
-
+                List<string> speed = new List<string>();
 
                 //displaying data in data grid.
                 var splittedHrData = SplitDataByEnter(splittedString[11]);
+                DateTime dateTime = DateTime.Parse(_parameter["StartTime"]);
+
+                int temp = 0;
                 foreach (var data in splittedHrData)
                 {
+                    temp++;
                     var value = SplitStringBySpace(data);
 
-                    if (value.Length >= 4)
+                    if (value.Length >= 5)
                     {
                         cadence.Add(value[0]);
                         altitude.Add(value[1]);
                         heartRate.Add(value[2]);
                         watt.Add(value[3]);
+                        speed.Add(value[4]);
 
-                        string[] HRdata = new string[] { value[0], value[1], value[2], value[3] };
+                        if (temp > 2) dateTime = dateTime.AddSeconds(Convert.ToInt32(_parameter["Interval"]));
+                        endTime = dateTime.TimeOfDay.ToString();
+
+                        string[] HRdata = new string[] { value[0], value[1], value[2], value[3], value[4], dateTime.TimeOfDay.ToString() };
                         dataGridView1.Rows.Add(HRdata);
                     }
                 }
@@ -103,11 +122,18 @@ namespace Data_Analysis_Software
                 _HRdata.Add("altitude", altitude);
                 _HRdata.Add("heartRate", heartRate);
                 _HRdata.Add("watt", watt);
+                _HRdata.Add("speed", speed);
 
-                string totalDistanceCovered = Abstract.FindSum(_HRdata["cadence"]).ToString();
-                lbltotalDistanceCovered.Text = "Total Distance Cover = " + totalDistanceCovered;
+                double startDate = TimeSpan.Parse(_parameter["StartTime"]).TotalSeconds;
+                double endDate = TimeSpan.Parse(endTime).TotalSeconds;
+                double totalTime = endDate - startDate;
+
                 string averageSpeed = Abstract.FindAverage(_HRdata["cadence"]).ToString();
                 lblAverageSpeed.Text = "Average Speed = " + averageSpeed;
+
+                string totalDistanceCovered = (Convert.ToDouble(averageSpeed) * totalTime).ToString();
+                lbltotalDistanceCovered.Text = "Total Distance Cover = " + totalDistanceCovered;
+                
                 string maxSpeed = Abstract.FindMax(_HRdata["cadence"]).ToString();
                 lblmaxSpeed.Text = "Maximum Speed = " + maxSpeed;
 
@@ -128,22 +154,78 @@ namespace Data_Analysis_Software
                 string maximumAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
                 lblmaximumAltitude.Text = "MAximum Altitude= " + maximumAltitude;
 
-
-
-
             }
         }
 
         private void GridFormat()
         {
-            dataGridView1.ColumnCount = 4;
+            dataGridView1.ColumnCount = 6;
             dataGridView1.Columns[0].Name = "Cadence";
             dataGridView1.Columns[1].Name = "Altitude";
             dataGridView1.Columns[2].Name = "Heart rate";
             dataGridView1.Columns[3].Name = "Power in watts";
+            dataGridView1.Columns[4].Name = "Speed(Mile/hr)";
+            dataGridView1.Columns[5].Name = "Time";
         }
 
-            private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CalculateSpeed(string type)
+        {
+            if (_HRdata.Count > 0)
+            {
+                List<string> data = new List<string>();
+                if (type == "mile")
+                {
+                    dataGridView1.Columns[4].Name = "Speed(Mile/hr)";
+
+                    data.Clear();
+
+                    for (int i = 0; i < _HRdata["cadence"].Count; i++)
+                    {
+                        string temp = (Convert.ToDouble(_HRdata["speed"][i]) * 1.60934).ToString();
+                        data.Add(temp);
+                    }
+
+                    //_hrData["speed"].Clear();
+                    _HRdata["speed"] = data;
+
+                    dataGridView1.Rows.Clear();
+                    DateTime dateTime = DateTime.Parse(_parameter["StartTime"]);
+                    for (int i = 0; i < _HRdata["cadence"].Count; i++)
+                    {
+                        if (i > 0) dateTime = dateTime.AddSeconds(Convert.ToInt32(_parameter["Interval"]));
+                        string[] hrData = new string[] { _HRdata["cadence"][i], _HRdata["altitude"][i], _HRdata["heartRate"][i], _HRdata["watt"][i], _HRdata["speed"][i], dateTime.TimeOfDay.ToString() };
+                        dataGridView1.Rows.Add(hrData);
+                    }
+                }
+                else
+                {
+                    dataGridView1.Columns[4].Name = "Speed(km/hr)";
+
+                    data.Clear();
+                    for (int i = 0; i < _HRdata["cadence"].Count; i++)
+                    {
+                        string temp = (Convert.ToDouble(_HRdata["speed"][i]) / 1.60934).ToString();
+                        data.Add(temp);
+                    }
+
+                    //_hrData["speed"].Clear();
+                    _HRdata["speed"] = data;
+
+                    dataGridView1.Rows.Clear();
+
+                    DateTime dateTime = DateTime.Parse(_parameter["StartTime"]);
+                    for (int i = 0; i < _HRdata["cadence"].Count; i++)
+                    {
+                        if (i > 0) dateTime = dateTime.AddSeconds(Convert.ToInt32(_parameter["Interval"]));
+                        string[] hrData = new string[] { _HRdata["cadence"][i], _HRdata["altitude"][i], _HRdata["heartRate"][i], _HRdata["watt"][i], _HRdata["speed"][i], dateTime.TimeOfDay.ToString() };
+                        dataGridView1.Rows.Add(hrData);
+                    }
+                }
+            }
+        }
+        
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -165,9 +247,69 @@ namespace Data_Analysis_Software
             }
             else
             {
-                GraphViewer._powerData = _HRdata["cadence"];
+                GraphViewer._HRdata = _HRdata;
                 new GraphViewer().Show();
             }
+        }
+
+        private string ConvertToDate(string date)
+        {
+            string year = "";
+            string month = "";
+            string day = "";
+
+            for (int i = 0; i < 4; i++)
+            {
+                year = year + date[i];
+            };
+
+            for (int i = 4; i < 6; i++)
+            {
+                month = month + date[i];
+            };
+
+            for (int i = 6; i < 8; i++)
+            {
+                day = day + date[i];
+            };
+
+            string convertedDate = year + "-" + month + "-" + day;
+
+            return convertedDate;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        /*private void button1_Click(object sender, EventArgs e)
+        {
+            if (_HRdata.Count < 1)
+            {
+                MessageBox.Show("Please select a file first");
+            }
+            else
+            {
+                individualGraph._HRdata = _HRdata;
+                new individualGraph().Show();
+            }
+        }*/
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            count++;
+            if (count > 1) CalculateSpeed("mile");
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            CalculateSpeed("km");
         }
     }
 }

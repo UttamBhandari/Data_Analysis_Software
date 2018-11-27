@@ -62,6 +62,12 @@
     <Compile Include="GraphViewer.Designer.cs">
       <DependentUpon>GraphViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="individualGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="individualGraph.Designer.cs">
+      <DependentUpon>individualGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Abstract.cs" />
@@ -70,6 +76,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GraphViewer.resx">
       <DependentUpon>GraphViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="individualGraph.resx">
+      <DependentUpon>individualGraph.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

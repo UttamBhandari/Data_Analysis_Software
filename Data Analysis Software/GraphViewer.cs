@@ -13,7 +13,8 @@ namespace Data_Analysis_Software
 {
     public partial class GraphViewer : Form
     {
-        public static List<string> _powerData;
+        public static Dictionary<string, List<string>> _HRdata;
+
         public GraphViewer()
         {
             InitializeComponent();
@@ -21,61 +22,106 @@ namespace Data_Analysis_Software
         private void GraphViewer_Load(object sender, EventArgs e)
         {
             DrawGraph();
-            Size();
+            SetSize();
         }
         private void DrawGraph()
         {
-            GraphPane grpane = zedGraphControl1.GraphPane;
+            GraphPane myPane = zedGraphControl1.GraphPane;
+
             // Set the Titles
-            grpane.Title = "Team A vs Team B Goal Analysis for 2014/2015 Season";
-            grpane.XAxis.Title = "Year";
-            grpane.YAxis.Title = "No of Goals";
+            myPane.Title = "Overview";
+            myPane.XAxis.Title = "Time in second";
+            myPane.YAxis.Title = "Data";
 
+            
 
-            PointPairList teamAPairList = new PointPairList();
-            PointPairList teamBPairList = new PointPairList();
-
-            for (int i = 0; i < 10; i++)
+            PointPairList cadencePairList = new PointPairList();
+            PointPairList altitudePairList = new PointPairList();
+            PointPairList heartPairList = new PointPairList();
+            PointPairList powerPairList = new PointPairList();
+            
+            for (int i = 0; i < _HRdata["cadence"].Count; i++)
             {
-                teamAPairList.Add(i, Convert.ToInt16(_powerData.ElementAt(i)));
-                teamBPairList.Add(i, Convert.ToInt16(_powerData.ElementAt(i)) + 12);
+                cadencePairList.Add(i, Convert.ToInt16(_HRdata["cadence"][i]));
             }
-            LineItem teamACurve = grpane.AddCurve("Team A",
-                   teamAPairList, Color.Red, SymbolType.Diamond);
 
-            LineItem teamBCurve = grpane.AddCurve("Team B",
-                  teamBPairList, Color.Blue, SymbolType.Circle);
+            for (int i = 0; i < _HRdata["altitude"].Count; i++)
+            {
+                altitudePairList.Add(i, Convert.ToInt16(_HRdata["altitude"][i]));
+            }
+
+            for (int i = 0; i < _HRdata["heartRate"].Count; i++)
+            {
+                heartPairList.Add(i, Convert.ToInt16(_HRdata["heartRate"][i]));
+            }
+
+            for (int i = 0; i < _HRdata["watt"].Count; i++)
+            {
+                powerPairList.Add(i, Convert.ToInt16(_HRdata["watt"][i]));
+            }
+
+            LineItem cadence = myPane.AddCurve("Cadence",
+                   cadencePairList, Color.Blue, SymbolType.None);
+
+            LineItem altitude = myPane.AddCurve("Altitude",
+                  altitudePairList, Color.Violet, SymbolType.None);
+
+            LineItem heart = myPane.AddCurve("Heart",
+                   heartPairList, Color.Red, SymbolType.None);
+
+            LineItem power = myPane.AddCurve("Power",
+                  powerPairList, Color.Green, SymbolType.None);
 
             zedGraphControl1.AxisChange();
         }
-        private void Size()
+
+        private void SetSize()
         {
             zedGraphControl1.Location = new Point(0, 0);
             zedGraphControl1.IsShowPointValues = true;
             zedGraphControl1.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 50);
 
         }
+
         private void GraphWindow_Resize(object sender, EventArgs e)
         {
-            Size();
+            SetSize();
         }
-        private int[] buildTeamAData()
+
+        private void button2_Click(object sender, EventArgs e)
         {
-            int[] goalsScored = new int[10];
-            for (int i = 0; i < 10; i++)
+            if (_HRdata.Count < 1)
             {
-                goalsScored[i] = (i + 1) * 10;
+                MessageBox.Show("Please select a file first");
             }
-            return goalsScored;
+            else
+            {
+                individualGraph._HRdata = _HRdata;
+                new individualGraph().Show();
+            }
         }
-        private int[] buildTeamBData()
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            int[] goalsScored = new int[10];
-            for (int i = 0; i < 10; i++)
-            {
-                goalsScored[i] = (i + 10) * 11;
-            }
-            return goalsScored;
+            this.Close();
         }
+        /*private int[] buildTeamAData()
+{
+int[] goalsScored = new int[10];
+for (int i = 0; i < 10; i++)
+{
+goalsScored[i] = (i + 1) * 10;
+}
+return goalsScored;
+}
+private int[] buildTeamBData()
+{
+int[] goalsScored = new int[10];
+for (int i = 0; i < 10; i++)
+{
+goalsScored[i] = (i + 10) * 11;
+}
+return goalsScored;
+}*/
     }
 }
