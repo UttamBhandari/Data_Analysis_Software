@@ -24,6 +24,25 @@ namespace Data_Analysis_Software
             DrawGraph();
             SetSize();
         }
+        private void SetSize()
+        {
+            zedGraphControl1.Location = new Point(0, 0);
+            zedGraphControl1.IsShowPointValues = true;
+            zedGraphControl1.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 50);
+
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (_HRdata.Count < 1)
+            {
+                MessageBox.Show("Please select a file first");
+            }
+            else
+            {
+                individualGraph._HRdata = _HRdata;
+                new individualGraph().Show();
+            }
+        }
         private void DrawGraph()
         {
             GraphPane myPane = zedGraphControl1.GraphPane;
@@ -75,53 +94,19 @@ namespace Data_Analysis_Software
             zedGraphControl1.AxisChange();
         }
 
-        private void SetSize()
-        {
-            zedGraphControl1.Location = new Point(0, 0);
-            zedGraphControl1.IsShowPointValues = true;
-            zedGraphControl1.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 50);
-
-        }
+        
 
         private void GraphWindow_Resize(object sender, EventArgs e)
         {
             SetSize();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (_HRdata.Count < 1)
-            {
-                MessageBox.Show("Please select a file first");
-            }
-            else
-            {
-                individualGraph._HRdata = _HRdata;
-                new individualGraph().Show();
-            }
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        /*private int[] buildTeamAData()
-{
-int[] goalsScored = new int[10];
-for (int i = 0; i < 10; i++)
-{
-goalsScored[i] = (i + 1) * 10;
-}
-return goalsScored;
-}
-private int[] buildTeamBData()
-{
-int[] goalsScored = new int[10];
-for (int i = 0; i < 10; i++)
-{
-goalsScored[i] = (i + 10) * 11;
-}
-return goalsScored;
-}*/
+        
     }
 }

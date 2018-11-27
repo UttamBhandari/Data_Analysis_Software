@@ -14,37 +14,44 @@ namespace Data_Analysis_Software
     public partial class individualGraph : Form
     
     {
+
         public static Dictionary<string, List<string>> _HRdata;
         public individualGraph()
         {
             InitializeComponent();
             drawGraph();
+            this.CenterToScreen();
+
+            zedGraphControl1.Visible = true;
+            zedGraphControl2.Visible = false;
+            zedGraphControl3.Visible = false;
+            zedGraphControl4.Visible = false;
         }
         private void drawGraph()
         {
 
-            GraphPane speedPane = zedGraphControl1.GraphPane;
-            GraphPane heartRatePane = zedGraphControl2.GraphPane;
-            GraphPane cadencePane = zedGraphControl3.GraphPane;
-            GraphPane powerPane = zedGraphControl4.GraphPane; 
+            GraphPane speedGraphPanel = zedGraphControl1.GraphPane;
+            GraphPane heartRateGraphPanel = zedGraphControl2.GraphPane;
+            GraphPane cadenceGraphPanel = zedGraphControl3.GraphPane;
+            GraphPane powerGraphPanel = zedGraphControl4.GraphPane;
 
 
             // Set the Titles
-            speedPane.Title = "Overview";
-            speedPane.XAxis.Title = "Time in second";
-            speedPane.YAxis.Title = "Data";
+            speedGraphPanel.Title = "Overview";
+            speedGraphPanel.XAxis.Title = "Time in second";
+            speedGraphPanel.YAxis.Title = "Data";
 
-            heartRatePane.Title = "Overview";
-            heartRatePane.XAxis.Title = "Time in second";
-            heartRatePane.YAxis.Title = "Data";
+            heartRateGraphPanel.Title = "Overview";
+            heartRateGraphPanel.XAxis.Title = "Time in second";
+            heartRateGraphPanel.YAxis.Title = "Data";
 
-            cadencePane.Title = "Overview";
-            cadencePane.XAxis.Title = "Time in second";
-            cadencePane.YAxis.Title = "Data";
+            cadenceGraphPanel.Title = "Overview";
+            cadenceGraphPanel.XAxis.Title = "Time in second";
+            cadenceGraphPanel.YAxis.Title = "Data";
 
-            powerPane.Title = "Overview";
-            powerPane.XAxis.Title = "Time in second";
-            powerPane.YAxis.Title = "Data";
+            powerGraphPanel.Title = "Overview";
+            powerGraphPanel.XAxis.Title = "Time in second";
+            powerGraphPanel.YAxis.Title = "Data";
 
             PointPairList cadencePairList = new PointPairList();
             PointPairList altitudePairList = new PointPairList();
@@ -72,17 +79,17 @@ namespace Data_Analysis_Software
                 powerPairList.Add(i, Convert.ToInt16(_HRdata["watt"][i]));
             }
 
-            LineItem cadence = cadencePane.AddCurve("Cadence",
+            LineItem cadence = cadenceGraphPanel.AddCurve("Cadence",
                    cadencePairList, Color.Blue, SymbolType.None);
             //cadence.Symbol.Fill = new Fill(new Color[] { Color.Blue, Color.Green, Color.Red });
 
-            LineItem altitude = speedPane.AddCurve("Altitude",
+            LineItem altitude = speedGraphPanel.AddCurve("Altitude",
                   altitudePairList, Color.Pink, SymbolType.None);
 
-            LineItem heart = heartRatePane.AddCurve("Heart",
+            LineItem heart = heartRateGraphPanel.AddCurve("Heart",
                    heartPairList, Color.Red, SymbolType.None);
 
-            LineItem power = powerPane.AddCurve("Power",
+            LineItem power = powerGraphPanel.AddCurve("Power",
                   powerPairList, Color.Green, SymbolType.None);
 
             zedGraphControl1.AxisChange();
@@ -155,6 +162,38 @@ namespace Data_Analysis_Software
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            zedGraphControl1.Visible = true;
+            zedGraphControl2.Visible = false;
+            zedGraphControl3.Visible = false;
+            zedGraphControl4.Visible = false;
+        }
+
+        private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            zedGraphControl1.Visible = false;
+            zedGraphControl2.Visible = true;
+            zedGraphControl3.Visible = false;
+            zedGraphControl4.Visible = false;
+        }
+
+        private void radioButton3_CheckedChanged_1(object sender, EventArgs e)
+        {
+            zedGraphControl1.Visible = false;
+            zedGraphControl2.Visible = false;
+            zedGraphControl3.Visible = true;
+            zedGraphControl4.Visible = false;
+        }
+
+        private void radioButton4_CheckedChanged_1(object sender, EventArgs e)
+        {
+            zedGraphControl1.Visible = false;
+            zedGraphControl2.Visible = false;
+            zedGraphControl3.Visible = false;
+            zedGraphControl4.Visible = true;
         }
     }
 }

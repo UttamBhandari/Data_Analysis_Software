@@ -18,6 +18,7 @@ namespace Data_Analysis_Software
         private Dictionary<string, List<string>> _HRdata = new Dictionary<string, List<string>>();
         private Dictionary<string, string> _parameter = new Dictionary<string, string>();
         private string endTime;
+        private List<int> smode = new List<int>();
 
         public btnindividualform()
         {
@@ -85,6 +86,12 @@ namespace Data_Analysis_Software
                 labellength.Text = labellength.Text + "= " + _parameter["Length"];
                 labelweight.Text = labelweight.Text + "= " + _parameter["Weight"];
 
+                var sMode = _parameter["SMode"];
+                for (int i = 0; i < sMode.Length; i++)
+                {
+                    smode.Add((int)Char.GetNumericValue(_parameter["SMode"][i]));
+                }
+
                 List<string> cadence = new List<string>();
                 List<string> altitude = new List<string>();
                 List<string> heartRate = new List<string>();
@@ -112,8 +119,15 @@ namespace Data_Analysis_Software
                         if (temp > 2) dateTime = dateTime.AddSeconds(Convert.ToInt32(_parameter["Interval"]));
                         endTime = dateTime.TimeOfDay.ToString();
 
-                        string[] HRdata = new string[] { value[0], value[1], value[2], value[3], value[4], dateTime.TimeOfDay.ToString() };
-                        dataGridView1.Rows.Add(HRdata);
+                        //string[] HRdata = new string[] { value[0], value[1], value[2], value[3], value[4], dateTime.TimeOfDay.ToString() };
+                        List<string> hrData = new List<string>();
+                        hrData.Add(value[0]);
+                        hrData.Add(value[1]);
+                        hrData.Add(value[2]);
+                        hrData.Add(value[3]);
+                        hrData.Add(value[4]);
+                        hrData.Add(dateTime.TimeOfDay.ToString());
+                        dataGridView1.Rows.Add(hrData.ToArray());
                     }
                 }
 
@@ -123,6 +137,27 @@ namespace Data_Analysis_Software
                 _HRdata.Add("heartRate", heartRate);
                 _HRdata.Add("watt", watt);
                 _HRdata.Add("speed", speed);
+
+                if (smode[0] == 0)
+                {
+                    dataGridView1.Columns[0].Visible = false;
+                }
+                else if (smode[1] == 0)
+                {
+                    dataGridView1.Columns[1].Visible = false;
+                }
+                else if (smode[2] == 0)
+                {
+                    dataGridView1.Columns[2].Visible = false;
+                }
+                else if (smode[3] == 0)
+                {
+                    dataGridView1.Columns[3].Visible = false;
+                }
+                else if (smode[4] == 0)
+                {
+                    dataGridView1.Columns[4].Visible = false;
+                }
 
                 double startDate = TimeSpan.Parse(_parameter["StartTime"]).TotalSeconds;
                 double endDate = TimeSpan.Parse(endTime).TotalSeconds;
