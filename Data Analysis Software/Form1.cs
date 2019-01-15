@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Data_Analysis_Software
 {
@@ -79,12 +80,12 @@ namespace Data_Analysis_Software
                 //richTextBox2.Text = sr.ReadToEnd();
                 //sr.Close();
                 labelstarttime.Text = labelstarttime.Text + "= " + _parameter["StartTime"];
-                labelinterval.Text = labelinterval.Text + "= " + _parameter["Interval"];
+                labelinterval.Text = labelinterval.Text + "= " + Regex.Replace(_parameter["Interval"], @"\t|\n|\r", "") + " sec";
                 labelmonitor.Text = labelmonitor.Text + "= " + _parameter["Monitor"];
                 labelsmode.Text = labelsmode.Text + "= " + _parameter["SMode"];
                 labeldate.Text = labeldate.Text + "= " + ConvertToDate(_parameter["Date"]);
                 labellength.Text = labellength.Text + "= " + _parameter["Length"];
-                labelweight.Text = labelweight.Text + "= " + _parameter["Weight"];
+                labelweight.Text = labelweight.Text + "= " + Regex.Replace(_parameter["Weight"], @"\t|\n|\r", "") + " kg";
 
                 var sMode = _parameter["SMode"];
                 for (int i = 0; i < sMode.Length; i++)
@@ -173,21 +174,21 @@ namespace Data_Analysis_Software
                 lblmaxSpeed.Text = "Maximum Speed = " + maxSpeed;
 
                 string averageHeartRate = Abstract.FindAverage(_HRdata["heartRate"]).ToString();
-                lblaverageHeartRate.Text = "Average heart Rate = " + averageHeartRate;
+                lblaverageHeartRate.Text = "Average heart Rate (bpm)= " + averageHeartRate;
                 string maximumHeartRate = Abstract.FindMax(_HRdata["heartRate"]).ToString();
-                lblmaximumHeartRate.Text = "MAximum Heart Rate = " + maximumHeartRate;
+                lblmaximumHeartRate.Text = "MAximum Heart Rate (bpm) = " + maximumHeartRate;
                 string minHeartRate = Abstract.FindMin(_HRdata["heartRate"]).ToString();
-                lblminHeartRate.Text = "Mimimum Heart Rate= " + minHeartRate;
+                lblminHeartRate.Text = "Mimimum Heart Rate (bpm)= " + minHeartRate;
 
                 string averagePower = Abstract.FindAverage(_HRdata["watt"]).ToString();
-                lblaveragePower.Text = "Average Power = " + averagePower;
+                lblaveragePower.Text = "Average Power (watts) = " + averagePower;
                 string maxPower = Abstract.FindMax(_HRdata["watt"]).ToString();
-                lblmaxPower.Text = "MAximum Power = " + maxPower;
+                lblmaxPower.Text = "MAximum Power (watts) = " + maxPower;
 
                 string averageAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
-                lblaverageAltitude.Text = "Average Altitude = " + averageAltitude;
+                lblaverageAltitude.Text = "Average Altitude (m/ft) = " + averageAltitude;
                 string maximumAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
-                lblmaximumAltitude.Text = "MAximum Altitude= " + maximumAltitude;
+                lblmaximumAltitude.Text = "MAximum Altitude (m/ft) = " + maximumAltitude;
 
             }
         }
@@ -195,10 +196,10 @@ namespace Data_Analysis_Software
         private void GridFormat()
         {
             dataGridView1.ColumnCount = 6;
-            dataGridView1.Columns[0].Name = "Cadence";
-            dataGridView1.Columns[1].Name = "Altitude";
-            dataGridView1.Columns[2].Name = "Heart rate";
-            dataGridView1.Columns[3].Name = "Power in watts";
+            dataGridView1.Columns[0].Name = "Cadence(rpm)";
+            dataGridView1.Columns[1].Name = "Altitude(m/ft)";
+            dataGridView1.Columns[2].Name = "Heart rate(bpm)";
+            dataGridView1.Columns[3].Name = "Power(watts)";
             dataGridView1.Columns[4].Name = "Speed(Mile/hr)";
             dataGridView1.Columns[5].Name = "Time";
         }

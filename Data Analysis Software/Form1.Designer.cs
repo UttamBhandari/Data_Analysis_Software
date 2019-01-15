@@ -212,18 +212,18 @@
             this.lblaverageHeartRate.AutoSize = true;
             this.lblaverageHeartRate.Location = new System.Drawing.Point(686, 292);
             this.lblaverageHeartRate.Name = "lblaverageHeartRate";
-            this.lblaverageHeartRate.Size = new System.Drawing.Size(102, 13);
+            this.lblaverageHeartRate.Size = new System.Drawing.Size(131, 13);
             this.lblaverageHeartRate.TabIndex = 18;
-            this.lblaverageHeartRate.Text = "Average Heart Rate";
+            this.lblaverageHeartRate.Text = "Average Heart Rate (bpm)";
             // 
             // lblmaximumHeartRate
             // 
             this.lblmaximumHeartRate.AutoSize = true;
             this.lblmaximumHeartRate.Location = new System.Drawing.Point(685, 317);
             this.lblmaximumHeartRate.Name = "lblmaximumHeartRate";
-            this.lblmaximumHeartRate.Size = new System.Drawing.Size(106, 13);
+            this.lblmaximumHeartRate.Size = new System.Drawing.Size(135, 13);
             this.lblmaximumHeartRate.TabIndex = 19;
-            this.lblmaximumHeartRate.Text = "Maximum Heart Rate";
+            this.lblmaximumHeartRate.Text = "Maximum Heart Rate (bpm)";
             this.lblmaximumHeartRate.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblminHeartRate
@@ -231,45 +231,45 @@
             this.lblminHeartRate.AutoSize = true;
             this.lblminHeartRate.Location = new System.Drawing.Point(686, 341);
             this.lblminHeartRate.Name = "lblminHeartRate";
-            this.lblminHeartRate.Size = new System.Drawing.Size(105, 13);
+            this.lblminHeartRate.Size = new System.Drawing.Size(134, 13);
             this.lblminHeartRate.TabIndex = 20;
-            this.lblminHeartRate.Text = "Mimimum Heart Rate";
+            this.lblminHeartRate.Text = "Mimimum Heart Rate (bpm)";
             // 
             // lblaveragePower
             // 
             this.lblaveragePower.AutoSize = true;
             this.lblaveragePower.Location = new System.Drawing.Point(686, 363);
             this.lblaveragePower.Name = "lblaveragePower";
-            this.lblaveragePower.Size = new System.Drawing.Size(80, 13);
+            this.lblaveragePower.Size = new System.Drawing.Size(114, 13);
             this.lblaveragePower.TabIndex = 21;
-            this.lblaveragePower.Text = "Average Power";
+            this.lblaveragePower.Text = "Average Power (watts)";
             // 
             // lblmaxPower
             // 
             this.lblmaxPower.AutoSize = true;
             this.lblmaxPower.Location = new System.Drawing.Point(686, 387);
             this.lblmaxPower.Name = "lblmaxPower";
-            this.lblmaxPower.Size = new System.Drawing.Size(84, 13);
+            this.lblmaxPower.Size = new System.Drawing.Size(118, 13);
             this.lblmaxPower.TabIndex = 22;
-            this.lblmaxPower.Text = "Maximum Power";
+            this.lblmaxPower.Text = "Maximum Power (watts)";
             // 
             // lblaverageAltitude
             // 
             this.lblaverageAltitude.AutoSize = true;
             this.lblaverageAltitude.Location = new System.Drawing.Point(686, 410);
             this.lblaverageAltitude.Name = "lblaverageAltitude";
-            this.lblaverageAltitude.Size = new System.Drawing.Size(85, 13);
+            this.lblaverageAltitude.Size = new System.Drawing.Size(113, 13);
             this.lblaverageAltitude.TabIndex = 23;
-            this.lblaverageAltitude.Text = "Average Altitude";
+            this.lblaverageAltitude.Text = "Average Altitude (m/ft)";
             // 
             // lblmaximumAltitude
             // 
             this.lblmaximumAltitude.AutoSize = true;
             this.lblmaximumAltitude.Location = new System.Drawing.Point(686, 435);
             this.lblmaximumAltitude.Name = "lblmaximumAltitude";
-            this.lblmaximumAltitude.Size = new System.Drawing.Size(89, 13);
+            this.lblmaximumAltitude.Size = new System.Drawing.Size(117, 13);
             this.lblmaximumAltitude.TabIndex = 24;
-            this.lblmaximumAltitude.Text = "Maximum Altitude";
+            this.lblmaximumAltitude.Text = "Maximum Altitude (m/ft)";
             // 
             // btnviewgraph
             // 

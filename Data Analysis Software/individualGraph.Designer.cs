@@ -45,34 +45,34 @@
             this.zedGraphControl1.Location = new System.Drawing.Point(29, 54);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.PointValueFormat = "G";
-            this.zedGraphControl1.Size = new System.Drawing.Size(467, 237);
+            this.zedGraphControl1.Size = new System.Drawing.Size(881, 452);
             this.zedGraphControl1.TabIndex = 0;
             // 
             // zedGraphControl2
             // 
             this.zedGraphControl2.IsShowPointValues = false;
-            this.zedGraphControl2.Location = new System.Drawing.Point(532, 54);
+            this.zedGraphControl2.Location = new System.Drawing.Point(29, 41);
             this.zedGraphControl2.Name = "zedGraphControl2";
             this.zedGraphControl2.PointValueFormat = "G";
-            this.zedGraphControl2.Size = new System.Drawing.Size(442, 237);
+            this.zedGraphControl2.Size = new System.Drawing.Size(881, 465);
             this.zedGraphControl2.TabIndex = 1;
             // 
             // zedGraphControl3
             // 
             this.zedGraphControl3.IsShowPointValues = false;
-            this.zedGraphControl3.Location = new System.Drawing.Point(29, 325);
+            this.zedGraphControl3.Location = new System.Drawing.Point(29, 54);
             this.zedGraphControl3.Name = "zedGraphControl3";
             this.zedGraphControl3.PointValueFormat = "G";
-            this.zedGraphControl3.Size = new System.Drawing.Size(467, 239);
+            this.zedGraphControl3.Size = new System.Drawing.Size(881, 452);
             this.zedGraphControl3.TabIndex = 2;
             // 
             // zedGraphControl4
             // 
             this.zedGraphControl4.IsShowPointValues = false;
-            this.zedGraphControl4.Location = new System.Drawing.Point(532, 325);
+            this.zedGraphControl4.Location = new System.Drawing.Point(29, 39);
             this.zedGraphControl4.Name = "zedGraphControl4";
             this.zedGraphControl4.PointValueFormat = "G";
-            this.zedGraphControl4.Size = new System.Drawing.Size(442, 239);
+            this.zedGraphControl4.Size = new System.Drawing.Size(881, 467);
             this.zedGraphControl4.TabIndex = 3;
             // 
             // button1
