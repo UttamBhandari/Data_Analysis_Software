@@ -15,6 +15,7 @@ namespace Data_Analysis_Software
 {
     public partial class btnindividualform : Form
     {
+
         private int count = 0;
         private Dictionary<string, List<string>> _HRdata = new Dictionary<string, List<string>>();
         private Dictionary<string, string> _parameter = new Dictionary<string, string>();
@@ -27,6 +28,7 @@ namespace Data_Analysis_Software
             GridFormat();
 
         }
+        //spliting the data according to their heading
         private static string[] SplitData(string text)
         {
 
@@ -38,6 +40,7 @@ namespace Data_Analysis_Software
             return splitted;
 
         }
+        //split the data by space 
         private string[] SplitStringBySpace(string text)
         {
             var TextFormatted = string.Join(" ", text.Split().Where(x => x != ""));
@@ -47,7 +50,7 @@ namespace Data_Analysis_Software
         {
             return text.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
         }
-
+        
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog();
@@ -86,7 +89,8 @@ namespace Data_Analysis_Software
                 labeldate.Text = labeldate.Text + "= " + ConvertToDate(_parameter["Date"]);
                 labellength.Text = labellength.Text + "= " + _parameter["Length"];
                 labelweight.Text = labelweight.Text + "= " + Regex.Replace(_parameter["Weight"], @"\t|\n|\r", "") + " kg";
-
+                 
+                //smode is declared and used in the system 
                 var sMode = _parameter["SMode"];
                 for (int i = 0; i < sMode.Length; i++)
                 {
@@ -138,7 +142,7 @@ namespace Data_Analysis_Software
                 _HRdata.Add("heartRate", heartRate);
                 _HRdata.Add("watt", watt);
                 _HRdata.Add("speed", speed);
-
+                //smode is checked from the smode given in the file.
                 if (smode[0] == 0)
                 {
                     dataGridView1.Columns[0].Visible = false;
@@ -160,6 +164,7 @@ namespace Data_Analysis_Software
                     dataGridView1.Columns[4].Visible = false;
                 }
 
+                //to display value in label
                 double startDate = TimeSpan.Parse(_parameter["StartTime"]).TotalSeconds;
                 double endDate = TimeSpan.Parse(endTime).TotalSeconds;
                 double totalTime = endDate - startDate;
@@ -192,7 +197,7 @@ namespace Data_Analysis_Software
 
             }
         }
-
+        // display the selected data in list view.
         private void GridFormat()
         {
             dataGridView1.ColumnCount = 6;
@@ -203,7 +208,7 @@ namespace Data_Analysis_Software
             dataGridView1.Columns[4].Name = "Speed(Mile/hr)";
             dataGridView1.Columns[5].Name = "Time";
         }
-
+        //calculate speed according to the user choice (KM / Miles)
         private void CalculateSpeed(string type)
         {
             if (_HRdata.Count > 0)

@@ -11,10 +11,12 @@ using ZedGraph;
 
 namespace Data_Analysis_Software
 {
+    //graph for the system is displayed using this class
     public partial class GraphViewer : Form
     {
         public static Dictionary<string, List<string>> _HRdata;
-
+        
+        //initialize  
         public GraphViewer()
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace Data_Analysis_Software
             zedGraphControl1.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 50);
 
         }
+        // button for inserting data from file
         private void button2_Click(object sender, EventArgs e)
         {
             if (_HRdata.Count < 1)
@@ -43,6 +46,7 @@ namespace Data_Analysis_Software
                 new individualGraph().Show();
             }
         }
+        //read the data inserted, and helps to display in graph.
         private void DrawGraph()
         {
             GraphPane myPane = zedGraphControl1.GraphPane;

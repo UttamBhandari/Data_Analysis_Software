@@ -15,6 +15,7 @@ namespace Data_Analysis_Software
     
     {
 
+        //individual graph is shown
         public static Dictionary<string, List<string>> _HRdata;
         public individualGraph()
         {
@@ -115,7 +116,7 @@ namespace Data_Analysis_Software
             zedGraphControl4.IsShowPointValues = true;
             zedGraphControl4.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 50);
         }
-
+        // radio button is added in the system to view individual graph one by one
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             zedGraphControl1.Visible = true;
@@ -134,6 +135,7 @@ namespace Data_Analysis_Software
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
+
             zedGraphControl1.Visible = false;
             zedGraphControl2.Visible = false;
             zedGraphControl3.Visible = true;
@@ -163,7 +165,7 @@ namespace Data_Analysis_Software
         {
             this.Close();
         }
-
+        // radio button is added in the system to view individual graph one by one
         private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
         {
             zedGraphControl1.Visible = true;

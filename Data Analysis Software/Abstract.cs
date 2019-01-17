@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data_Analysis_Software
 {
+    //this class helps to calculate min, max, average and sum value of the data.
     class Abstract
     {
         public static int FindMax(List<string> value)
