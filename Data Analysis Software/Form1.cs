@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using Data_Analysis_Software.Action;
 
 namespace Data_Analysis_Software
 {
@@ -21,7 +22,7 @@ namespace Data_Analysis_Software
         private Dictionary<string, string> _parameter = new Dictionary<string, string>();
         private string endTime;
         private List<int> smode = new List<int>();
-
+        private FileConvertor c = new FileConvertor();
         public btnindividualform()
         {
             InitializeComponent();
@@ -169,30 +170,30 @@ namespace Data_Analysis_Software
                 double endDate = TimeSpan.Parse(endTime).TotalSeconds;
                 double totalTime = endDate - startDate;
 
-                string averageSpeed = Abstract.FindAverage(_HRdata["cadence"]).ToString();
+                string averageSpeed = Summary.FindAverage(_HRdata["cadence"]).ToString();
                 lblAverageSpeed.Text = "Average Speed = " + averageSpeed;
 
                 string totalDistanceCovered = (Convert.ToDouble(averageSpeed) * totalTime).ToString();
                 lbltotalDistanceCovered.Text = "Total Distance Cover = " + totalDistanceCovered;
                 
-                string maxSpeed = Abstract.FindMax(_HRdata["cadence"]).ToString();
+                string maxSpeed = Summary.FindMax(_HRdata["cadence"]).ToString();
                 lblmaxSpeed.Text = "Maximum Speed = " + maxSpeed;
 
-                string averageHeartRate = Abstract.FindAverage(_HRdata["heartRate"]).ToString();
+                string averageHeartRate = Summary.FindAverage(_HRdata["heartRate"]).ToString();
                 lblaverageHeartRate.Text = "Average heart Rate (bpm)= " + averageHeartRate;
-                string maximumHeartRate = Abstract.FindMax(_HRdata["heartRate"]).ToString();
+                string maximumHeartRate = Summary.FindMax(_HRdata["heartRate"]).ToString();
                 lblmaximumHeartRate.Text = "MAximum Heart Rate (bpm) = " + maximumHeartRate;
-                string minHeartRate = Abstract.FindMin(_HRdata["heartRate"]).ToString();
+                string minHeartRate = Summary.FindMin(_HRdata["heartRate"]).ToString();
                 lblminHeartRate.Text = "Mimimum Heart Rate (bpm)= " + minHeartRate;
 
-                string averagePower = Abstract.FindAverage(_HRdata["watt"]).ToString();
+                string averagePower = Summary.FindAverage(_HRdata["watt"]).ToString();
                 lblaveragePower.Text = "Average Power (watts) = " + averagePower;
-                string maxPower = Abstract.FindMax(_HRdata["watt"]).ToString();
+                string maxPower = Summary.FindMax(_HRdata["watt"]).ToString();
                 lblmaxPower.Text = "MAximum Power (watts) = " + maxPower;
 
-                string averageAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
+                string averageAltitude = Summary.FindAverage(_HRdata["altitude"]).ToString();
                 lblaverageAltitude.Text = "Average Altitude (m/ft) = " + averageAltitude;
-                string maximumAltitude = Abstract.FindAverage(_HRdata["altitude"]).ToString();
+                string maximumAltitude = Summary.FindAverage(_HRdata["altitude"]).ToString();
                 lblmaximumAltitude.Text = "MAximum Altitude (m/ft) = " + maximumAltitude;
 
             }

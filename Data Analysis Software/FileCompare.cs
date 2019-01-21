@@ -21,7 +21,6 @@ namespace Data_Analysis_Software
         {
             InitializeComponent();
         }
-
         private void FileCompare_Load(object sender, EventArgs e)
         {
             InitGrid();
@@ -63,7 +62,6 @@ namespace Data_Analysis_Software
             dataGridView3.Rows.Add(new TableFiller().FillDataInSumaryTable(firstTableData, firstTableData["params"] as Dictionary<string, string>, firstTableData["endTime"] as string));
             dataGridView3.Rows.Add(new TableFiller().FillDataInSumaryTable(secondTableData, secondTableData["params"] as Dictionary<string, string>, secondTableData["endTime"] as string));
         }
-
         private void InitGrid()
         {
             //try
@@ -103,29 +101,6 @@ namespace Data_Analysis_Software
             dataGridView3.Columns[9].Name = "Maximum altitude(RPM)";
 
         }
-
-        private void button3_MouseHover(object sender, EventArgs e)
-        {
-            //ToolTip tt = new ToolTip();
-            //Control o = (Control)sender;
-            //tt.Show("Lorem ipsum dolor sit ame", o, 1000);
-        }
-
-        private void dataGridView3_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void dataGridView3_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var value = dataGridView3.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
@@ -161,11 +136,6 @@ namespace Data_Analysis_Software
                     MessageBox.Show(result);
                 }
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

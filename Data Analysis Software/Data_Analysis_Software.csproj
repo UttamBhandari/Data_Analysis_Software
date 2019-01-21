@@ -50,7 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\Abstracts.cs" />
     <Compile Include="Action\FileConvertor.cs" />
+    <Compile Include="Action\Summary.cs" />
     <Compile Include="Action\TableFiller.cs" />
     <Compile Include="FileCompare.cs">
       <SubType>Form</SubType>
@@ -78,7 +80,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Abstract.cs" />
     <EmbeddedResource Include="FileCompare.resx">
       <DependentUpon>FileCompare.cs</DependentUpon>
     </EmbeddedResource>
