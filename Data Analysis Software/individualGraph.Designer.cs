@@ -37,6 +37,8 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.zedGraphControl5 = new ZedGraph.ZedGraphControl();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // zedGraphControl1
@@ -133,11 +135,34 @@
             this.radioButton4.UseVisualStyleBackColor = true;
             this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged_1);
             // 
+            // zedGraphControl5
+            // 
+            this.zedGraphControl5.IsShowPointValues = false;
+            this.zedGraphControl5.Location = new System.Drawing.Point(29, 39);
+            this.zedGraphControl5.Name = "zedGraphControl5";
+            this.zedGraphControl5.PointValueFormat = "G";
+            this.zedGraphControl5.Size = new System.Drawing.Size(953, 483);
+            this.zedGraphControl5.TabIndex = 9;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(673, 568);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(56, 17);
+            this.radioButton5.TabIndex = 10;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Speed";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
+            // 
             // individualGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 599);
+            this.Controls.Add(this.radioButton5);
+            this.Controls.Add(this.zedGraphControl5);
             this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
@@ -166,5 +191,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
+        private ZedGraph.ZedGraphControl zedGraphControl5;
+        private System.Windows.Forms.RadioButton radioButton5;
     }
 }

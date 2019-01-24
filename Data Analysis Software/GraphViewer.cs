@@ -14,7 +14,7 @@ namespace Data_Analysis_Software
     //graph for the system is displayed using this class
     public partial class GraphViewer : Form
     {
-        public static Dictionary<string, List<string>> _HRdata;
+        public static Dictionary<string, List<string>> _hrData;
         
         //initialize  
         public GraphViewer()
@@ -36,13 +36,13 @@ namespace Data_Analysis_Software
         // button for inserting data from file
         private void button2_Click(object sender, EventArgs e)
         {
-            if (_HRdata.Count < 1)
+            if (_hrData.Count < 1)
             {
                 MessageBox.Show("Please select a file first");
             }
             else
             {
-                individualGraph._HRdata = _HRdata;
+                individualGraph._hrData = _hrData;
                 new individualGraph().Show();
             }
         }
@@ -63,24 +63,24 @@ namespace Data_Analysis_Software
             PointPairList heartPairList = new PointPairList();
             PointPairList powerPairList = new PointPairList();
             
-            for (int i = 0; i < _HRdata["cadence"].Count; i++)
+            for (int i = 0; i < _hrData["cadence"].Count; i++)
             {
-                cadencePairList.Add(i, Convert.ToInt16(_HRdata["cadence"][i]));
+                cadencePairList.Add(i, Convert.ToInt16(_hrData["cadence"][i]));
             }
 
-            for (int i = 0; i < _HRdata["altitude"].Count; i++)
+            for (int i = 0; i < _hrData["altitude"].Count; i++)
             {
-                altitudePairList.Add(i, Convert.ToInt16(_HRdata["altitude"][i]));
+                altitudePairList.Add(i, Convert.ToInt16(_hrData["altitude"][i]));
             }
 
-            for (int i = 0; i < _HRdata["heartRate"].Count; i++)
+            for (int i = 0; i < _hrData["heartRate"].Count; i++)
             {
-                heartPairList.Add(i, Convert.ToInt16(_HRdata["heartRate"][i]));
+                heartPairList.Add(i, Convert.ToInt16(_hrData["heartRate"][i]));
             }
 
-            for (int i = 0; i < _HRdata["watt"].Count; i++)
+            for (int i = 0; i < _hrData["watt"].Count; i++)
             {
-                powerPairList.Add(i, Convert.ToInt16(_HRdata["watt"][i]));
+                powerPairList.Add(i, Convert.ToInt16(_hrData["watt"][i]));
             }
 
             LineItem cadence = myPane.AddCurve("Cadence",

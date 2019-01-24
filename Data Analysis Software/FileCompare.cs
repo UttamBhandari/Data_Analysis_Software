@@ -59,8 +59,8 @@ namespace Data_Analysis_Software
             var firstTableData = new TableFiller().FillTable(fileOneText, dataGridView1);
             var secondTableData = new TableFiller().FillTable(fileTwoText, dataGridView2);
 
-            dataGridView3.Rows.Add(new TableFiller().FillDataInSumaryTable(firstTableData, firstTableData["params"] as Dictionary<string, string>, firstTableData["endTime"] as string));
-            dataGridView3.Rows.Add(new TableFiller().FillDataInSumaryTable(secondTableData, secondTableData["params"] as Dictionary<string, string>, secondTableData["endTime"] as string));
+            dataGridView3.Rows.Add(new TableFiller().FillDataInSumaryTable(firstTableData, firstTableData["endTime"] as string, firstTableData["params"] as Dictionary<string, string>));
+            dataGridView3.Rows.Add(new TableFiller().FillDataInSumaryTable(secondTableData, secondTableData["endTime"] as string, secondTableData["params"] as Dictionary<string, string>));
         }
         private void InitGrid()
         {
@@ -136,6 +136,10 @@ namespace Data_Analysis_Software
                     MessageBox.Show(result);
                 }
             }
+        }
+        private void FileCompare_Load_1(object sender, EventArgs e)
+        {
+            InitGrid();
         }
     }
 }

@@ -136,6 +136,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "FileCompare";
             this.Text = "FileCompare";
+            this.Load += new System.EventHandler(this.FileCompare_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();

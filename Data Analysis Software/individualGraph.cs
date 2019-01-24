@@ -14,9 +14,8 @@ namespace Data_Analysis_Software
     public partial class individualGraph : Form
     
     {
-
         //individual graph is shown
-        public static Dictionary<string, List<string>> _HRdata;
+        public static Dictionary<string, List<string>> _hrData;
         public individualGraph()
         {
             InitializeComponent();
@@ -27,6 +26,10 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = false;
             zedGraphControl3.Visible = false;
             zedGraphControl4.Visible = false;
+            zedGraphControl5.Visible = false;
+
+            this.radioButton2.Checked = true;
+
         }
         private void drawGraph()
         {
@@ -35,7 +38,7 @@ namespace Data_Analysis_Software
             GraphPane heartRateGraphPanel = zedGraphControl2.GraphPane;
             GraphPane cadenceGraphPanel = zedGraphControl3.GraphPane;
             GraphPane powerGraphPanel = zedGraphControl4.GraphPane;
-
+            GraphPane altituteGraphPanel = zedGraphControl5.GraphPane;
 
             // Set the Titles
             speedGraphPanel.Title = "Overview";
@@ -54,30 +57,40 @@ namespace Data_Analysis_Software
             powerGraphPanel.XAxis.Title = "Time in second";
             powerGraphPanel.YAxis.Title = "Data";
 
+            altituteGraphPanel.Title = "Altitute";
+            altituteGraphPanel.XAxis.Title = "Time in second";
+            altituteGraphPanel.YAxis.Title = "Data";
+
+
             PointPairList cadencePairList = new PointPairList();
             PointPairList altitudePairList = new PointPairList();
             PointPairList heartPairList = new PointPairList();
             PointPairList powerPairList = new PointPairList();
+            PointPairList speedPairList = new PointPairList();
 
-
-            for (int i = 0; i < _HRdata["cadence"].Count; i++)
+            for (int i = 0; i < _hrData["cadence"].Count; i++)
             {
-                cadencePairList.Add(i, Convert.ToInt16(_HRdata["cadence"][i]));
+                cadencePairList.Add(i, Convert.ToInt16(_hrData["cadence"][i]));
             }
 
-            for (int i = 0; i < _HRdata["altitude"].Count; i++)
+            for (int i = 0; i < _hrData["altitude"].Count; i++)
             {
-                altitudePairList.Add(i, Convert.ToInt16(_HRdata["altitude"][i]));
+                altitudePairList.Add(i, Convert.ToInt16(_hrData["altitude"][i]));
             }
 
-            for (int i = 0; i < _HRdata["heartRate"].Count; i++)
+            for (int i = 0; i < _hrData["heartRate"].Count; i++)
             {
-                heartPairList.Add(i, Convert.ToInt16(_HRdata["heartRate"][i]));
+                heartPairList.Add(i, Convert.ToInt16(_hrData["heartRate"][i]));
             }
 
-            for (int i = 0; i < _HRdata["watt"].Count; i++)
+            for (int i = 0; i < _hrData["watt"].Count; i++)
             {
-                powerPairList.Add(i, Convert.ToInt16(_HRdata["watt"][i]));
+                powerPairList.Add(i, Convert.ToInt16(_hrData["watt"][i]));
+            }
+
+            for (int i = 0; i < _hrData["heartRate"].Count; i++)
+            {
+                speedPairList.Add(i, Convert.ToInt16(_hrData["speed"][i]));
             }
 
             LineItem cadence = cadenceGraphPanel.AddCurve("Cadence",
@@ -93,10 +106,15 @@ namespace Data_Analysis_Software
             LineItem power = powerGraphPanel.AddCurve("Power",
                   powerPairList, Color.Green, SymbolType.None);
 
+            LineItem altitute = altituteGraphPanel.AddCurve("Altitute",
+            altitudePairList, Color.Red, SymbolType.None);
+
+
             zedGraphControl1.AxisChange();
             zedGraphControl2.AxisChange();
             zedGraphControl3.AxisChange();
             zedGraphControl4.AxisChange();
+            zedGraphControl5.AxisChange();
         }
         private void SetSize()
         {
@@ -115,6 +133,12 @@ namespace Data_Analysis_Software
             zedGraphControl4.Location = new Point(0, 0);
             zedGraphControl4.IsShowPointValues = true;
             zedGraphControl4.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 50);
+
+
+            zedGraphControl5.Location = new Point(0, 0);
+            zedGraphControl5.IsShowPointValues = true;
+            zedGraphControl5.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 50);
+
         }
         // radio button is added in the system to view individual graph one by one
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -123,6 +147,7 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = false;
             zedGraphControl3.Visible = false;
             zedGraphControl4.Visible = false;
+            zedGraphControl5.Visible = false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -131,6 +156,7 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = true;
             zedGraphControl3.Visible = false;
             zedGraphControl4.Visible = false;
+            zedGraphControl5.Visible = false;
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -140,6 +166,7 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = false;
             zedGraphControl3.Visible = true;
             zedGraphControl4.Visible = false;
+            zedGraphControl5.Visible = false;
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
@@ -148,6 +175,7 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = false;
             zedGraphControl3.Visible = false;
             zedGraphControl4.Visible = true;
+            zedGraphControl5.Visible = false;
         }
 
 
@@ -172,6 +200,7 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = false;
             zedGraphControl3.Visible = false;
             zedGraphControl4.Visible = false;
+            zedGraphControl5.Visible = false;
         }
 
         private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
@@ -180,6 +209,7 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = true;
             zedGraphControl3.Visible = false;
             zedGraphControl4.Visible = false;
+            zedGraphControl5.Visible = false;
         }
 
         private void radioButton3_CheckedChanged_1(object sender, EventArgs e)
@@ -188,6 +218,7 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = false;
             zedGraphControl3.Visible = true;
             zedGraphControl4.Visible = false;
+            zedGraphControl5.Visible = false;
         }
 
         private void radioButton4_CheckedChanged_1(object sender, EventArgs e)
@@ -196,6 +227,17 @@ namespace Data_Analysis_Software
             zedGraphControl2.Visible = false;
             zedGraphControl3.Visible = false;
             zedGraphControl4.Visible = true;
+            zedGraphControl5.Visible = false;
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+
+            zedGraphControl1.Visible = false;
+            zedGraphControl2.Visible = false;
+            zedGraphControl3.Visible = false;
+            zedGraphControl4.Visible = false;
+            zedGraphControl5.Visible = true;
         }
     }
 }
