@@ -16,7 +16,6 @@ namespace Data_Analysis_Software
 {
     public partial class btnindividualform : Form
     {
-
         private int count = 0;
         private Dictionary<string, List<string>> _hrData = new Dictionary<string, List<string>>();
         private Dictionary<string, string> _param = new Dictionary<string, string>();
@@ -38,8 +37,6 @@ namespace Data_Analysis_Software
             if (result == DialogResult.OK)
             {
                 Cursor.Current = Cursors.WaitCursor;
-                //_param = new Dictionary<string, string>();
-                //_hrData = new Dictionary<string, List<string>>();
                 string text = File.ReadAllText(openFileDialog1.FileName);
                 Dictionary<string, object> hrData = new TableFiller().FillTable(text, dataGridView1);
                 _hrData = hrData.ToDictionary(k => k.Key, k => k.Value as List<string>);
@@ -78,10 +75,10 @@ namespace Data_Analysis_Software
 
                 var param = hrData["params"] as Dictionary<string, string>;
                 //smode is declared and used in the system 
-                var sMode = _param["SMode"];
+                var sMode = param["SMode"];
                 for (int i = 0; i < sMode.Length; i++)
                 {
-                    smode.Add((int)Char.GetNumericValue(_param["SMode"][i]));
+                    smode.Add((int)Char.GetNumericValue(param["SMode"][i]));
                 }
                 /*
                 List<string> cadence = new List<string>();
@@ -132,10 +129,7 @@ namespace Data_Analysis_Software
                 _hrData.Add("speed", speed);
                 */
                 //smode is checked from the smode given in the file.
-                for (int i = 0; i < sMode.Length; i++)
-                {
-                    smode.Add((int)Char.GetNumericValue(param["SMode"][i]));
-                }
+                
                 if (smode[0] == 0)
                 {
                     dataGridView1.Columns[0].Visible = false;
@@ -156,9 +150,10 @@ namespace Data_Analysis_Software
                 {
                     dataGridView1.Columns[4].Visible = false;
                 }
-
+                
+                /*
                 //to display value in label
-                /*double startDate = TimeSpan.Parse(_param["StartTime"]).TotalSeconds;
+                double startDate = TimeSpan.Parse(_param["StartTime"]).TotalSeconds;
                 double endDate = TimeSpan.Parse(endTime).TotalSeconds;
                 double totalTime = endDate - startDate;
 
@@ -411,6 +406,11 @@ namespace Data_Analysis_Software
 
             //dataGridView2.Rows.Clear();
             //dataGridView2.Rows.Add(new TableFiller().FillDataInSumaryTable(data, endTime[count - 1], _param));
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
 
         }
     }
