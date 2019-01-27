@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Data_Analysis_Software.Action
 {
-    class TableFiller
+    public class TableFiller
     {
         public string[] FillDataInSumaryTable(Dictionary<string, object> _hrData, string endTime, Dictionary<string, string> _param = null)
         {

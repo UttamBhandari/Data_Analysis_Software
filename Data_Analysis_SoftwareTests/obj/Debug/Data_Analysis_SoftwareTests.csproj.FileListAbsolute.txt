@@ -1,0 +1,18 @@
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Data_Analysis_SoftwareTests.dll
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Data_Analysis_SoftwareTests.pdb
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Data Analysis Software.exe
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\ZedGraph.dll
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Data Analysis Software.pdb
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Data Analysis Software.exe.config
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\obj\Debug\Data_Analysis_SoftwareTests.csprojAssemblyReference.cache
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\obj\Debug\Data_Analysis_SoftwareTests.csproj.CoreCompileInputs.cache
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\obj\Debug\Data_Analysis_SoftwareTests.csproj.CopyComplete
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\obj\Debug\Data_Analysis_SoftwareTests.dll
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data_Analysis_SoftwareTests\obj\Debug\Data_Analysis_SoftwareTests.pdb
