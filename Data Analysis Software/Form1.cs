@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using Data_Analysis_Software.Action;
-
 namespace Data_Analysis_Software
 {
     public partial class btnindividualform : Form
@@ -41,38 +40,6 @@ namespace Data_Analysis_Software
                 Dictionary<string, object> hrData = new TableFiller().FillTable(text, dataGridView1);
                 _hrData = hrData.ToDictionary(k => k.Key, k => k.Value as List<string>);
 
-
-                //var splittedString = SplitData(text);
-                //var splittedParaData = SplitDataByEnter(splittedString[0]);
-                /*foreach (var data in splittedParaData)
-                {
-                    if (data != "\r")
-                    {
-                        string[] parts = data.Split(new[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
-                        _param.Add(parts[0], parts[1]);
-                    }
-                }*/
-
-                /*DateTime date1 = new DateTime(Convert.ToInt64(_param["Date"]));
-                CultureInfo ci = CultureInfo.InvariantCulture;
-                */
-                /* foreach (var a in _parameter)
-                 {
-                     Console.WriteLine(a.Key);
-                 }*/
-                //StreamReader sr = new StreamReader(Application.StartupPath +);
-                //richTextBox2.Text = sr.ReadToEnd();
-                //sr.Close();
-
-                /*labelstarttime.Text = labelstarttime.Text + "= " + _param["StartTime"];
-                labelinterval.Text = labelinterval.Text + "= " + Regex.Replace(_param["Interval"], @"\t|\n|\r", "") + " sec";
-                labelmonitor.Text = labelmonitor.Text + "= " + _param["Monitor"];
-                labelsmode.Text = labelsmode.Text + "= " + _param["SMode"];
-                labeldate.Text = labeldate.Text + "= " + ConvertToDate(_param["Date"]);
-                labellength.Text = labellength.Text + "= " + _param["Length"];
-                labelweight.Text = labelweight.Text + "= " + Regex.Replace(_param["Weight"], @"\t|\n|\r", "") + " kg";
-                */
-
                 var param = hrData["params"] as Dictionary<string, string>;
                 //smode is declared and used in the system 
                 var sMode = param["SMode"];
@@ -80,56 +47,7 @@ namespace Data_Analysis_Software
                 {
                     smode.Add((int)Char.GetNumericValue(param["SMode"][i]));
                 }
-                /*
-                List<string> cadence = new List<string>();
-                List<string> altitude = new List<string>();
-                List<string> heartRate = new List<string>();
-                List<string> watt = new List<string>();
-                List<string> speed = new List<string>();
-                
-                //displaying data in data grid.
-                var splittedHrData = SplitDataByEnter(splittedString[11]);
-                DateTime dateTime = DateTime.Parse(_param["StartTime"]);
-
-                int temp = 0;
-                */
-                /*foreach (var data in splittedHrData)
-                {
-                    temp++;
-                    var value = SplitStringBySpace(data);
-
-                    if (value.Length >= 5)
-                    {
-                        cadence.Add(value[0]);
-                        altitude.Add(value[1]);
-                        heartRate.Add(value[2]);
-                        watt.Add(value[3]);
-                        speed.Add(value[4]);
-
-                        if (temp > 2) dateTime = dateTime.AddSeconds(Convert.ToInt32(_param["Interval"]));
-                        endTime = dateTime.TimeOfDay.ToString();
-
-                        //string[] HRdata = new string[] { value[0], value[1], value[2], value[3], value[4], dateTime.TimeOfDay.ToString() };
-                        List<string> hrData = new List<string>();
-                        hrData.Add(value[0]);
-                        hrData.Add(value[1]);
-                        hrData.Add(value[2]);
-                        hrData.Add(value[3]);
-                        hrData.Add(value[4]);
-                        hrData.Add(dateTime.TimeOfDay.ToString());
-                        dataGridView1.Rows.Add(hrData.ToArray());
-                    }
-                }
-
-
-                _hrData.Add("cadence", cadence);
-                _hrData.Add("altitude", altitude);
-                _hrData.Add("heartRate", heartRate);
-                _hrData.Add("watt", watt);
-                _hrData.Add("speed", speed);
-                */
                 //smode is checked from the smode given in the file.
-                
                 if (smode[0] == 0)
                 {
                     dataGridView1.Columns[0].Visible = false;
@@ -150,39 +68,9 @@ namespace Data_Analysis_Software
                 {
                     dataGridView1.Columns[4].Visible = false;
                 }
+                dataGridView2.Rows.Clear();
+                dataGridView2.Rows.Add(new TableFiller().FillDataInSumaryTable(hrData, hrData["endTime"] as string, hrData["params"] as Dictionary<string, string>));
                 
-                /*
-                //to display value in label
-                double startDate = TimeSpan.Parse(_param["StartTime"]).TotalSeconds;
-                double endDate = TimeSpan.Parse(endTime).TotalSeconds;
-                double totalTime = endDate - startDate;
-
-                string averageSpeed = Summary.FindAverage(_hrData["cadence"]).ToString();
-                lblAverageSpeed.Text = "Average Speed = " + averageSpeed;
-
-                string totalDistanceCovered = (Convert.ToDouble(averageSpeed) * totalTime).ToString();
-                lbltotalDistanceCovered.Text = "Total Distance Cover = " + totalDistanceCovered;
-
-                string maxSpeed = Summary.FindMax(_hrData["cadence"]).ToString();
-                lblmaxSpeed.Text = "Maximum Speed = " + maxSpeed;
-
-                string averageHeartRate = Summary.FindAverage(_hrData["heartRate"]).ToString();
-                lblaverageHeartRate.Text = "Average heart Rate (bpm)= " + averageHeartRate;
-                string maximumHeartRate = Summary.FindMax(_hrData["heartRate"]).ToString();
-                lblmaximumHeartRate.Text = "MAximum Heart Rate (bpm) = " + maximumHeartRate;
-                string minHeartRate = Summary.FindMin(_hrData["heartRate"]).ToString();
-                lblminHeartRate.Text = "Mimimum Heart Rate (bpm)= " + minHeartRate;
-
-                string averagePower = Summary.FindAverage(_hrData["watt"]).ToString();
-                lblaveragePower.Text = "Average Power (watts) = " + averagePower;
-                string maxPower = Summary.FindMax(_hrData["watt"]).ToString();
-                lblmaxPower.Text = "MAximum Power (watts) = " + maxPower;
-
-                string averageAltitude = Summary.FindAverage(_hrData["altitude"]).ToString();
-                lblaverageAltitude.Text = "Average Altitude (m/ft) = " + averageAltitude;
-                string maximumAltitude = Summary.FindAverage(_hrData["altitude"]).ToString();
-                lblmaximumAltitude.Text = "MAximum Altitude (m/ft) = " + maximumAltitude;
-                */
             }
         }
         private void GridFormat()
@@ -194,6 +82,19 @@ namespace Data_Analysis_Software
             dataGridView1.Columns[3].Name = "Power(watts)";
             dataGridView1.Columns[4].Name = "Speed(Mile/hr)";
             dataGridView1.Columns[5].Name = "Time";
+
+            dataGridView2.ColumnCount = 10;
+            dataGridView2.Columns[0].Name = "Total distance covered";
+            dataGridView2.Columns[1].Name = "Average speed(km/hr)";
+            dataGridView2.Columns[2].Name = "Maximum speed(km/hr)";
+            dataGridView2.Columns[3].Name = "Average heart rate(bpm)";
+            dataGridView2.Columns[4].Name = "Maximum heart rate(bpm)";
+            dataGridView2.Columns[5].Name = "Minimum heart rate(bpm)";
+            dataGridView2.Columns[6].Name = "Average power(watt)";
+            dataGridView2.Columns[7].Name = "Maximum power(watt)";
+            dataGridView2.Columns[8].Name = "Average altitude(RPM)";
+            dataGridView2.Columns[9].Name = "Maximum altitude(RPM)";
+
         }
 
         private void btnviewgraph_Click(object sender, EventArgs e)
@@ -282,40 +183,6 @@ namespace Data_Analysis_Software
         {
             new FileCompare().Show();
         }
-        
-
-
-        //spliting the data according to their heading
-        /*private static string[] SplitData(string text)
-        {
-
-
-            var split = new string[] { "[Params]", "[Note]", "[IntTimes]",
-                "[IntNotes]", "[ExtraData]", "[LapNames]", "[Summary-123]",
-                "[Summary-TH]", "[HRZones]", "[SwapTimes]", "[Trip]", "[HRData]" };
-            var splitted = text.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            return splitted;
-
-        }
-        //split the data by space 
-        private string[] SplitStringBySpace(string text)
-        {
-            var TextFormatted = string.Join(" ", text.Split().Where(x => x != ""));
-            return TextFormatted.Split(' ');
-        }
-        private static string[] SplitDataByEnter(string text)
-        {
-            return text.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-        }
-        
-         */
-
-
-
-        // display the selected data in list view.
-        
-        
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -330,9 +197,9 @@ namespace Data_Analysis_Software
         {
 
         }
-        
 
-        
+
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -342,20 +209,6 @@ namespace Data_Analysis_Software
         {
             Application.Restart();
         }
-
-        /*private void button1_Click(object sender, EventArgs e)
-        {
-            if (_HRdata.Count < 1)
-            {
-                MessageBox.Show("Please select a file first");
-            }
-            else
-            {
-                individualGraph._HRdata = _HRdata;
-                new individualGraph().Show();
-            }
-        }*/
-        
         private Dictionary<string, object> data = new Dictionary<string, object>();
         List<string> listCadence = new List<string>();
         List<string> listAltitude = new List<string>();
@@ -365,53 +218,73 @@ namespace Data_Analysis_Software
         List<string> listTime = new List<string>();
         private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            if (e.StateChanged != DataGridViewElementStates.Selected) return;
-            int index = Convert.ToInt32(e.Row.Index.ToString());
+            try
+            {
+                if (e.StateChanged != DataGridViewElementStates.Selected) return;
+                int index = Convert.ToInt32(e.Row.Index.ToString());
 
-            string cadence = dataGridView1.Rows[index].Cells[0].Value.ToString();
-            listCadence.Add(cadence);
+                string cadence = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                listCadence.Add(cadence);
 
-            //_hrData.Add("cadence", new List());
-            string altitude = dataGridView1.Rows[index].Cells[1].Value.ToString();
-            listAltitude.Add(altitude);
+                string altitude = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                listAltitude.Add(altitude);
 
-            string heartRate = dataGridView1.Rows[index].Cells[2].Value.ToString();
-            listHeartRate.Add(heartRate);
+                string heartRate = dataGridView1.Rows[index].Cells[2].Value.ToString();
+                listHeartRate.Add(heartRate);
 
-            string power = dataGridView1.Rows[index].Cells[3].Value.ToString();
-            listPower.Add(power);
+                string power = dataGridView1.Rows[index].Cells[3].Value.ToString();
+                listPower.Add(power);
 
-            string speed = dataGridView1.Rows[index].Cells[4].Value.ToString();
-            listSpeed.Add(speed);
+                string speed = dataGridView1.Rows[index].Cells[4].Value.ToString();
+                listSpeed.Add(speed);
 
-            string time = dataGridView1.Rows[index].Cells[5].Value.ToString();
-            listTime.Add(time);
-
-            Console.WriteLine(cadence + "/" + altitude + "/" + heartRate + "/" + power + "/" + speed + "/" + time);
+                string time = dataGridView1.Rows[index].Cells[5].Value.ToString();
+                listTime.Add(time);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            data.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            data.Add("cadence", listCadence);
-            data.Add("altitude", listAltitude);
-            data.Add("heartRate", listHeartRate);
-            data.Add("watt", listPower);
-            data.Add("speed", listSpeed);
-            data.Add("time", listTime);
+            try
+            {
+                data.Add("cadence", listCadence);
+                data.Add("altitude", listAltitude);
+                data.Add("heartRate", listHeartRate);
+                data.Add("watt", listPower);
+                data.Add("speed", listSpeed);
+                data.Add("time", listTime);
 
-            var endTime = data["time"] as List<string>;
-            int count = endTime.Count();
-            Dictionary<string, string> _param = new Dictionary<string, string>();
-            _param.Add("StartTime", endTime[0]);
+                var endTime = data["time"] as List<string>;
+                int count = endTime.Count();
+                Dictionary<string, string> _param = new Dictionary<string, string>();
+                _param.Add("StartTime", endTime[0]);
 
-            //dataGridView2.Rows.Clear();
-            //dataGridView2.Rows.Add(new TableFiller().FillDataInSumaryTable(data, endTime[count - 1], _param));
-
+                dataGridView2.Rows.Clear();
+                dataGridView2.Rows.Add(new TableFiller().FillDataInSumaryTable(data, endTime[count - 1], _param));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please click on reset button first");
+            }
         }
 
+        
         private void button5_Click(object sender, EventArgs e)
         {
-
+            var data = _hrData.ToDictionary(k => k.Key, k => k.Value as object);
+            new IntervalDetectionForm(data).Show();
         }
+
+
+
+
     }
 }

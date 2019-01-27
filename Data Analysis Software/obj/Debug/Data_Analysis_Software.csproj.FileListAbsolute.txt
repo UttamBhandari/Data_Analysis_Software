@@ -26,3 +26,4 @@ F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis
 F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.exe
 F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data Analysis Software\obj\Debug\Data Analysis Software.pdb
 F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data Analysis Software\obj\Debug\Data_Analysis_Software.FileCompare.resources
+F:\The British College\C#\Semester 2\77193498_Uttam_Bhandari_ASE_B\Data Analysis Software\Data Analysis Software\obj\Debug\Data_Analysis_Software.IntervalDetectionForm.resources

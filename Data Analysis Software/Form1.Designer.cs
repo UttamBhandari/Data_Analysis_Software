@@ -42,16 +42,6 @@
             this.labelmonitor = new System.Windows.Forms.Label();
             this.labelinterval = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lbltotalDistanceCovered = new System.Windows.Forms.Label();
-            this.lblAverageSpeed = new System.Windows.Forms.Label();
-            this.lblmaxSpeed = new System.Windows.Forms.Label();
-            this.lblaverageHeartRate = new System.Windows.Forms.Label();
-            this.lblmaximumHeartRate = new System.Windows.Forms.Label();
-            this.lblminHeartRate = new System.Windows.Forms.Label();
-            this.lblaveragePower = new System.Windows.Forms.Label();
-            this.lblmaxPower = new System.Windows.Forms.Label();
-            this.lblaverageAltitude = new System.Windows.Forms.Label();
-            this.lblmaximumAltitude = new System.Windows.Forms.Label();
             this.btnviewgraph = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,8 +49,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button6 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -69,7 +62,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(931, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1016, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -111,7 +104,7 @@
             // labelstarttime
             // 
             this.labelstarttime.AutoSize = true;
-            this.labelstarttime.Location = new System.Drawing.Point(686, 33);
+            this.labelstarttime.Location = new System.Drawing.Point(721, 39);
             this.labelstarttime.Name = "labelstarttime";
             this.labelstarttime.Size = new System.Drawing.Size(55, 13);
             this.labelstarttime.TabIndex = 3;
@@ -120,7 +113,7 @@
             // labelweight
             // 
             this.labelweight.AutoSize = true;
-            this.labelweight.Location = new System.Drawing.Point(689, 172);
+            this.labelweight.Location = new System.Drawing.Point(724, 178);
             this.labelweight.Name = "labelweight";
             this.labelweight.Size = new System.Drawing.Size(41, 13);
             this.labelweight.TabIndex = 13;
@@ -129,7 +122,7 @@
             // labeldate
             // 
             this.labeldate.AutoSize = true;
-            this.labeldate.Location = new System.Drawing.Point(688, 126);
+            this.labeldate.Location = new System.Drawing.Point(723, 132);
             this.labeldate.Name = "labeldate";
             this.labeldate.Size = new System.Drawing.Size(30, 13);
             this.labeldate.TabIndex = 12;
@@ -138,7 +131,7 @@
             // labellength
             // 
             this.labellength.AutoSize = true;
-            this.labellength.Location = new System.Drawing.Point(689, 149);
+            this.labellength.Location = new System.Drawing.Point(724, 155);
             this.labellength.Name = "labellength";
             this.labellength.Size = new System.Drawing.Size(40, 13);
             this.labellength.TabIndex = 10;
@@ -147,7 +140,7 @@
             // labelsmode
             // 
             this.labelsmode.AutoSize = true;
-            this.labelsmode.Location = new System.Drawing.Point(688, 103);
+            this.labelsmode.Location = new System.Drawing.Point(723, 109);
             this.labelsmode.Name = "labelsmode";
             this.labelsmode.Size = new System.Drawing.Size(41, 13);
             this.labelsmode.TabIndex = 11;
@@ -156,7 +149,7 @@
             // labelmonitor
             // 
             this.labelmonitor.AutoSize = true;
-            this.labelmonitor.Location = new System.Drawing.Point(687, 80);
+            this.labelmonitor.Location = new System.Drawing.Point(722, 86);
             this.labelmonitor.Name = "labelmonitor";
             this.labelmonitor.Size = new System.Drawing.Size(42, 13);
             this.labelmonitor.TabIndex = 9;
@@ -165,7 +158,7 @@
             // labelinterval
             // 
             this.labelinterval.AutoSize = true;
-            this.labelinterval.Location = new System.Drawing.Point(687, 56);
+            this.labelinterval.Location = new System.Drawing.Point(722, 62);
             this.labelinterval.Name = "labelinterval";
             this.labelinterval.Size = new System.Drawing.Size(42, 13);
             this.labelinterval.TabIndex = 8;
@@ -177,106 +170,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 58);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(634, 392);
+            this.dataGridView1.Size = new System.Drawing.Size(554, 392);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // lbltotalDistanceCovered
-            // 
-            this.lbltotalDistanceCovered.AutoSize = true;
-            this.lbltotalDistanceCovered.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lbltotalDistanceCovered.Location = new System.Drawing.Point(686, 217);
-            this.lbltotalDistanceCovered.Name = "lbltotalDistanceCovered";
-            this.lbltotalDistanceCovered.Size = new System.Drawing.Size(119, 13);
-            this.lbltotalDistanceCovered.TabIndex = 15;
-            this.lbltotalDistanceCovered.Text = "Total Distance Covered";
-            // 
-            // lblAverageSpeed
-            // 
-            this.lblAverageSpeed.AutoSize = true;
-            this.lblAverageSpeed.Location = new System.Drawing.Point(686, 242);
-            this.lblAverageSpeed.Name = "lblAverageSpeed";
-            this.lblAverageSpeed.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblAverageSpeed.Size = new System.Drawing.Size(81, 13);
-            this.lblAverageSpeed.TabIndex = 16;
-            this.lblAverageSpeed.Text = "Average Speed";
-            // 
-            // lblmaxSpeed
-            // 
-            this.lblmaxSpeed.AutoSize = true;
-            this.lblmaxSpeed.Location = new System.Drawing.Point(686, 269);
-            this.lblmaxSpeed.Name = "lblmaxSpeed";
-            this.lblmaxSpeed.Size = new System.Drawing.Size(85, 13);
-            this.lblmaxSpeed.TabIndex = 17;
-            this.lblmaxSpeed.Text = "Maximum Speed";
-            // 
-            // lblaverageHeartRate
-            // 
-            this.lblaverageHeartRate.AutoSize = true;
-            this.lblaverageHeartRate.Location = new System.Drawing.Point(686, 292);
-            this.lblaverageHeartRate.Name = "lblaverageHeartRate";
-            this.lblaverageHeartRate.Size = new System.Drawing.Size(131, 13);
-            this.lblaverageHeartRate.TabIndex = 18;
-            this.lblaverageHeartRate.Text = "Average Heart Rate (bpm)";
-            // 
-            // lblmaximumHeartRate
-            // 
-            this.lblmaximumHeartRate.AutoSize = true;
-            this.lblmaximumHeartRate.Location = new System.Drawing.Point(685, 317);
-            this.lblmaximumHeartRate.Name = "lblmaximumHeartRate";
-            this.lblmaximumHeartRate.Size = new System.Drawing.Size(135, 13);
-            this.lblmaximumHeartRate.TabIndex = 19;
-            this.lblmaximumHeartRate.Text = "Maximum Heart Rate (bpm)";
-            this.lblmaximumHeartRate.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lblminHeartRate
-            // 
-            this.lblminHeartRate.AutoSize = true;
-            this.lblminHeartRate.Location = new System.Drawing.Point(686, 341);
-            this.lblminHeartRate.Name = "lblminHeartRate";
-            this.lblminHeartRate.Size = new System.Drawing.Size(134, 13);
-            this.lblminHeartRate.TabIndex = 20;
-            this.lblminHeartRate.Text = "Mimimum Heart Rate (bpm)";
-            // 
-            // lblaveragePower
-            // 
-            this.lblaveragePower.AutoSize = true;
-            this.lblaveragePower.Location = new System.Drawing.Point(686, 363);
-            this.lblaveragePower.Name = "lblaveragePower";
-            this.lblaveragePower.Size = new System.Drawing.Size(114, 13);
-            this.lblaveragePower.TabIndex = 21;
-            this.lblaveragePower.Text = "Average Power (watts)";
-            // 
-            // lblmaxPower
-            // 
-            this.lblmaxPower.AutoSize = true;
-            this.lblmaxPower.Location = new System.Drawing.Point(686, 387);
-            this.lblmaxPower.Name = "lblmaxPower";
-            this.lblmaxPower.Size = new System.Drawing.Size(118, 13);
-            this.lblmaxPower.TabIndex = 22;
-            this.lblmaxPower.Text = "Maximum Power (watts)";
-            // 
-            // lblaverageAltitude
-            // 
-            this.lblaverageAltitude.AutoSize = true;
-            this.lblaverageAltitude.Location = new System.Drawing.Point(686, 410);
-            this.lblaverageAltitude.Name = "lblaverageAltitude";
-            this.lblaverageAltitude.Size = new System.Drawing.Size(113, 13);
-            this.lblaverageAltitude.TabIndex = 23;
-            this.lblaverageAltitude.Text = "Average Altitude (m/ft)";
-            // 
-            // lblmaximumAltitude
-            // 
-            this.lblmaximumAltitude.AutoSize = true;
-            this.lblmaximumAltitude.Location = new System.Drawing.Point(686, 435);
-            this.lblmaximumAltitude.Name = "lblmaximumAltitude";
-            this.lblmaximumAltitude.Size = new System.Drawing.Size(117, 13);
-            this.lblmaximumAltitude.TabIndex = 24;
-            this.lblmaximumAltitude.Text = "Maximum Altitude (m/ft)";
-            // 
             // btnviewgraph
             // 
-            this.btnviewgraph.Location = new System.Drawing.Point(395, 27);
+            this.btnviewgraph.Location = new System.Drawing.Point(361, 27);
             this.btnviewgraph.Name = "btnviewgraph";
             this.btnviewgraph.Size = new System.Drawing.Size(75, 23);
             this.btnviewgraph.TabIndex = 25;
@@ -315,7 +215,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(496, 27);
+            this.button3.Location = new System.Drawing.Point(467, 27);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 25);
             this.button3.TabIndex = 30;
@@ -325,7 +225,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(571, 456);
+            this.button4.Location = new System.Drawing.Point(598, 220);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 31;
@@ -335,7 +235,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(422, 456);
+            this.button5.Location = new System.Drawing.Point(872, 220);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(116, 23);
             this.button5.TabIndex = 32;
@@ -343,11 +243,31 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(572, 274);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(432, 176);
+            this.dataGridView2.TabIndex = 33;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(726, 220);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 34;
+            this.button6.Text = "Reset";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // btnindividualform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 506);
+            this.ClientSize = new System.Drawing.Size(1016, 480);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -355,16 +275,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnviewgraph);
-            this.Controls.Add(this.lblmaximumAltitude);
-            this.Controls.Add(this.lblaverageAltitude);
-            this.Controls.Add(this.lblmaxPower);
-            this.Controls.Add(this.lblaveragePower);
-            this.Controls.Add(this.lblminHeartRate);
-            this.Controls.Add(this.lblmaximumHeartRate);
-            this.Controls.Add(this.lblaverageHeartRate);
-            this.Controls.Add(this.lblmaxSpeed);
-            this.Controls.Add(this.lblAverageSpeed);
-            this.Controls.Add(this.lbltotalDistanceCovered);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelweight);
             this.Controls.Add(this.labeldate);
@@ -380,6 +290,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,16 +310,6 @@
         private System.Windows.Forms.Label labelmonitor;
         private System.Windows.Forms.Label labelinterval;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lbltotalDistanceCovered;
-        private System.Windows.Forms.Label lblAverageSpeed;
-        private System.Windows.Forms.Label lblmaxSpeed;
-        private System.Windows.Forms.Label lblaverageHeartRate;
-        private System.Windows.Forms.Label lblmaximumHeartRate;
-        private System.Windows.Forms.Label lblminHeartRate;
-        private System.Windows.Forms.Label lblaveragePower;
-        private System.Windows.Forms.Label lblmaxPower;
-        private System.Windows.Forms.Label lblaverageAltitude;
-        private System.Windows.Forms.Label lblmaximumAltitude;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button btnviewgraph;
         private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
@@ -418,6 +319,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button button6;
     }
 }
 
