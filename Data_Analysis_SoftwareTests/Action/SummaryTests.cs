@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// Action on summary class for unit test
+/// </summary>
 namespace Data_Analysis_Software.Action.Tests
 {
     [TestClass()]
@@ -35,7 +37,7 @@ namespace Data_Analysis_Software.Action.Tests
         [TestMethod()]
         public void FindSumTest()
         {
-            int val = Summary.FindSum(new List<string> { "15", "10", "4", "18", "16" });
+            double val = Summary.FindSum(new List<string> { "15", "10", "4", "18", "16" });
             Assert.AreEqual(63, val);
         }
 

@@ -11,6 +11,9 @@ using Data_Analysis_Software.Action;
 
 namespace Data_Analysis_Software
 {
+    /// <summary>
+    /// Interval taken while training is calculated and displayed in Interval Detection form. 
+    /// </summary>
     public partial class IntervalDetectionForm : Form
     {
         private Dictionary<string, object> _hrData;

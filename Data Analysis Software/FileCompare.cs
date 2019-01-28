@@ -12,6 +12,9 @@ using Data_Analysis_Software.Action;
 
 namespace Data_Analysis_Software
 {
+    /// <summary>
+    /// Action on File Compare form for comparing two hrm files 
+    /// </summary>
     public partial class FileCompare : Form
     {
         private string fileOneText = "";
